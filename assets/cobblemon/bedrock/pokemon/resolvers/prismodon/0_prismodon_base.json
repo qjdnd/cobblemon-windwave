@@ -1,0 +1,31 @@
+{
+  "species": "cobblemon:prismodon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:prismodon",
+      "model": "cobblemon:prismodon.geo",
+      "texture": "cobblemon:textures/pokemon/prismodon/prismodon.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/prismodon/prismodon_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/prismodon/prismodon_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

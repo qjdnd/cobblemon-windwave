@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Bedrock model preview</title>
+<style>html,body{margin:0;background:#20242a}canvas{display:block}</style>
+</head>
+<body>
+<script type="module">
+import * as THREE from '/three/build/three.module.js';
+THREE.ColorManagement.enabled = false;  // Minecraft lights in gamma space
+
+// ---------------------------------------------------------------- molang
+const M = {
+  sin: d => Math.sin(d * Math.PI / 180), cos: d => Math.cos(d * Math.PI / 180),
+  abs: Math.abs, clamp: (v, a, b) => Math.min(Math.max(v, a), b), lerp: (a, b, t) => a + (b - a) * t,
+  min: Math.min, max: Math.max, sqrt: Math.sqrt, pow: Math.pow, floor: Math.floor, ceil: Math.ceil,
+  round: Math.round, mod: (a, b) => a % b, pi: Math.PI,
+};
+const molangCache = new Map();
+function molang(expr, t) {
+  if (typeof expr === 'number') return expr;
+  let f = molangCache.get(expr);
+  if (!f) {
+    const js = String(expr)
+      .replace(/\b(q|query)\.anim_time\b/gi, 't')
+      .replace(/\b(q|query)\.life_time\b/gi, 't')
+      .replace(/\bmath\./gi, 'M.');
+    f = new Function('t', 'M', `return (${js});`);
+    molangCache.set(expr, f);
+  }
+  return f(t, M);
+}
+
+// ---------------------------------------------------------------- geometry
+function faceShape(f, t) {
+  return {
+    east: [[t[0], t[1], t[2]], [t[0], t[1], f[2]], [t[0], f[1], t[2]], [t[0], f[1], f[2]]],
+    west: [[f[0], t[1], f[2]], [f[0], t[1], t[2]], [f[0], f[1], f[2]], [f[0], f[1], t[2]]],
+    up: [[f[0], t[1], f[2]], [t[0], t[1], f[2]], [f[0], t[1], t[2]], [t[0], t[1], t[2]]],
+    down: [[f[0], f[1], t[2]], [t[0], f[1], t[2]], [f[0], f[1], f[2]], [t[0], f[1], f[2]]],
+    south: [[f[0], t[1], t[2]], [t[0], t[1], t[2]], [f[0], f[1], t[2]], [t[0], f[1], t[2]]],
+    north: [[t[0], t[1], f[2]], [f[0], t[1], f[2]], [t[0], f[1], f[2]], [f[0], f[1], f[2]]],
+  };
+}
+const ORDER = ['east', 'west', 'up', 'down', 'south', 'north'];
+
+function cubeGeometry(c, tw, th) {
+  const [w, h, d] = c.size;
+  const o = c.origin, infl = c.inflate || 0;
+  const from = [-(o[0] + w), o[1], o[2]];
+  const to = [from[0] + w, from[1] + h, from[2] + d];
+  const cp = c.pivot ? [-c.pivot[0], c.pivot[1], c.pivot[2]] : [0, 0, 0];
+  const f = from.map((v, i) => v - infl - cp[i]);
+  const tt = to.map((v, i) => v + infl - cp[i]);
+  for (let i = 0; i < 3; i++) if (f[i] === tt[i]) tt[i] += 0.001;
+  const shapes = faceShape(f, tt);
+  let fl = {
+    east: [[0, d], [d, h]], west: [[d + w, d], [d, h]], up: [[d + w, d], [-w, -d]],
+    down: [[d + 2 * w, 0], [-w, d]], south: [[2 * d + w, d], [w, h]], north: [[d, d], [w, h]],
+  };
+  if (c.mirror) {
+    for (const k in fl) { fl[k][0][0] += fl[k][1][0]; fl[k][1][0] *= -1; }
+    const e = fl.east; fl.east = fl.west; fl.west = e;
+  }
+  const pos = [], uv = [], idx = [];
+  let n = 0;
+  for (const face of ORDER) {
+    const [fr, sz] = fl[face];
+    if (sz[0] === 0 || sz[1] === 0) continue;
+    const u1 = fr[0] + c.uv[0], v1 = fr[1] + c.uv[1], u2 = u1 + sz[0], v2 = v1 + sz[1];
+    const vs = shapes[face];
+    const uvs = [[u1, v1], [u2, v1], [u1, v2], [u2, v2]];
+    for (let i = 0; i < 4; i++) {
+      pos.push(...vs[i]);
+      uv.push(uvs[i][0] / tw, 1 - uvs[i][1] / th);
+    }
+    idx.push(n, n + 2, n + 1, n + 2, n + 3, n + 1);
+    n += 4;
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  g.setIndex(idx);
+  g.computeVertexNormals();
+  return { g, cp, rot: c.rotation ? [-c.rotation[0], -c.rotation[1], c.rotation[2]] : [0, 0, 0] };
+}
+
+const D2R = Math.PI / 180;
+
+function buildModel(geo, materials) {
+  const gdesc = geo['minecraft:geometry'][0];
+  const tw = gdesc.description.texture_width, th = gdesc.description.texture_height;
+  const bones = {};
+  const root = new THREE.Group();
+  for (const b of gdesc.bones) {
+    const grp = new THREE.Group();
+    grp.name = b.name;
+    grp.rotation.order = 'ZYX';
+    const origin = b.pivot ? [-b.pivot[0], b.pivot[1], b.pivot[2]] : [0, 0, 0];
+    const rot = b.rotation ? [-b.rotation[0], -b.rotation[1], b.rotation[2]] : [0, 0, 0];
+    grp.userData = { origin, rot, parent: b.parent, def: b };
+    bones[b.name] = grp;
+    for (const c of (b.cubes || [])) {
+      const { g, cp, rot: crot } = cubeGeometry(c, tw, th);
+      for (const mat of materials) {
+        const mesh = new THREE.Mesh(g, mat);
+        mesh.rotation.order = 'ZYX';
+        mesh.position.set(cp[0] - origin[0], cp[1] - origin[1], cp[2] - origin[2]);
+        mesh.rotation.set(crot[0] * D2R, crot[1] * D2R, crot[2] * D2R);
+        mesh.renderOrder = mat.userData.order || 0;
+        grp.add(mesh);
+      }
+    }
+  }
+  for (const name in bones) {
+    const grp = bones[name];
+    const { origin, rot, parent } = grp.userData;
+    const par = parent ? bones[parent] : null;
+    const po = par ? par.userData.origin : [0, 0, 0];
+    (par || root).add(grp);
+    grp.userData.restPos = [origin[0] - po[0], origin[1] - po[1], origin[2] - po[2]];
+    grp.userData.restRot = rot.map(v => v * D2R);
+  }
+  return { root, bones };
+}
+
+function resetPose(bones) {
+  for (const k in bones) {
+    const b = bones[k];
+    b.position.fromArray(b.userData.restPos);
+    b.rotation.set(...b.userData.restRot);
+    b.scale.set(1, 1, 1);
+  }
+}
+
+// ---------------------------------------------------------------- animation
+function vec(v, t) {
+  if (typeof v === 'number' || typeof v === 'string') { const x = molang(v, t); return [x, x, x]; }
+  return v.map(e => molang(e, t));
+}
+function sampleChannel(ch, t) {
+  if (Array.isArray(ch) || typeof ch !== 'object') return vec(ch, t);
+  const keys = Object.keys(ch).map(k => [parseFloat(k), ch[k]]).sort((a, b) => a[0] - b[0]);
+  const pre = kf => (kf && !Array.isArray(kf) && typeof kf === 'object') ? (kf.pre ?? kf.post) : kf;
+  const post = kf => (kf && !Array.isArray(kf) && typeof kf === 'object') ? (kf.post ?? kf.pre) : kf;
+  const mode = kf => (kf && !Array.isArray(kf) && typeof kf === 'object') ? (kf.lerp_mode || 'linear') : 'linear';
+  if (t <= keys[0][0]) return vec(pre(keys[0][1]), t);
+  if (t >= keys[keys.length - 1][0]) return vec(post(keys[keys.length - 1][1]), t);
+  let i = 0;
+  while (i < keys.length - 1 && keys[i + 1][0] <= t) i++;
+  const [t0, k0] = keys[i], [t1, k1] = keys[i + 1];
+  const a = (t - t0) / (t1 - t0);
+  const p0 = vec(post(k0), t), p1 = vec(pre(k1), t);
+  if (mode(k0) === 'catmullrom' || mode(k1) === 'catmullrom') {
+    const pm = i > 0 ? vec(post(keys[i - 1][1]), t) : p0;
+    const pn = i + 2 < keys.length ? vec(pre(keys[i + 2][1]), t) : p1;
+    return p0.map((_, j) => {
+      const v0 = pm[j], v1 = p0[j], v2 = p1[j], v3 = pn[j];
+      const a2 = a * a, a3 = a2 * a;
+      return 0.5 * ((2 * v1) + (-v0 + v2) * a + (2 * v0 - 5 * v1 + 4 * v2 - v3) * a2 + (-v0 + 3 * v1 - 3 * v2 + v3) * a3);
+    });
+  }
+  if (mode(k0) === 'step') return p0;
+  return p0.map((v, j) => v + (p1[j] - v) * a);
+}
+function applyAnimation(bones, anim, time) {
+  let t = time;
+  const len = anim.animation_length;
+  if (anim.loop === true && len) t = time % len;
+  else if (len) t = Math.min(time, len);
+  for (const name in (anim.bones || {})) {
+    const b = bones[name];
+    if (!b) continue;
+    const ch = anim.bones[name];
+    if (ch.rotation !== undefined) {
+      const r = sampleChannel(ch.rotation, t);
+      b.rotation.x += -r[0] * D2R; b.rotation.y += -r[1] * D2R; b.rotation.z += r[2] * D2R;
+    }
+    if (ch.position !== undefined) {
+      const p = sampleChannel(ch.position, t);
+      b.position.x += -p[0]; b.position.y += p[1]; b.position.z += p[2];
+    }
+    if (ch.scale !== undefined) {
+      const s = sampleChannel(ch.scale, t);
+      b.scale.set(b.scale.x * (s[0] || 1e-5), b.scale.y * (s[1] || 1e-5), b.scale.z * (s[2] || 1e-5));
+    }
+  }
+}
+
+// ---------------------------------------------------------------- scene
+async function loadTex(url) {
+  const tex = await new THREE.TextureLoader().loadAsync(url);
+  tex.magFilter = THREE.NearestFilter; tex.minFilter = THREE.NearestFilter;
+  tex.colorSpace = THREE.NoColorSpace; tex.generateMipmaps = false;
+  return tex;
+}
+
+window.render = async function (job) {
+  const W = job.width || 800, H = job.height || 800;
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, alpha: true });
+  renderer.setSize(W, H);
+  renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+  document.body.innerHTML = '';
+  document.body.appendChild(renderer.domElement);
+  const geo = await (await fetch(job.geo)).json();
+  const anims = job.animation ? (await (await fetch(job.animation)).json()).animations : {};
+  const mats = [];
+  const base = await loadTex(job.texture);
+  mats.push(new THREE.MeshLambertMaterial({ map: base, alphaTest: 0.1, side: THREE.FrontSide }));
+  for (const layer of (job.layers || [])) {
+    const lt = await loadTex(layer);
+    const m = new THREE.MeshBasicMaterial({ map: lt, alphaTest: 0.1, side: THREE.FrontSide,
+      polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -4 });
+    m.userData.order = 1;
+    mats.push(m);
+  }
+  const { root, bones } = buildModel(geo, mats);
+  const scene = new THREE.Scene();
+  scene.background = job.background ? new THREE.Color(job.background) : null;
+  scene.add(root);
+  // Minecraft entity lighting: ambient 0.4 + two diffuse lights of 0.6
+  const PI = Math.PI;
+  scene.add(new THREE.AmbientLight(0xffffff, (job.ambient ?? 0.4) * PI));
+  for (const d of [[-0.2, 1.0, -0.7], [0.2, 1.0, 0.7]]) {
+    const l = new THREE.DirectionalLight(0xffffff, (job.diffuse ?? 0.6) * PI);
+    l.position.set(...d);
+    scene.add(l);
+  }
+  if (job.ground !== false) {
+    const gm = new THREE.Mesh(new THREE.CircleGeometry(40, 48), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.18 }));
+    gm.rotation.x = -Math.PI / 2; gm.position.y = -0.01;
+    scene.add(gm);
+  }
+  const cam = new THREE.PerspectiveCamera(job.fov || 30, W / H, 0.5, 1000);
+  const out = [];
+  for (const shot of job.shots) {
+    resetPose(bones);
+    for (const a of (shot.anims || [])) {
+      const anim = anims[a.name];
+      if (anim) applyAnimation(bones, anim, a.time || 0);
+    }
+    const tgt = shot.target || [0, 22, 0];
+    const yaw = (shot.yaw || 0) * D2R, pitch = (shot.pitch || 0) * D2R, dist = shot.dist || 120;
+    // yaw = 0 looks at the model's face (camera on the -Z side)
+    cam.position.set(tgt[0] + Math.sin(yaw) * Math.cos(pitch) * dist,
+                     tgt[1] + Math.sin(pitch) * dist,
+                     tgt[2] - Math.cos(yaw) * Math.cos(pitch) * dist);
+    cam.lookAt(tgt[0], tgt[1], tgt[2]);
+    cam.fov = shot.fov || job.fov || 30; cam.updateProjectionMatrix();
+    renderer.render(scene, cam);
+    out.push(renderer.domElement.toDataURL('image/png'));
+  }
+  return out;
+};
+window.ready = true;
+</script>
+</body>
+</html>

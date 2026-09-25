@@ -1,0 +1,94 @@
+{
+  "portraitScale": 1.55,
+  "portraitTranslation": [
+    -0.55,
+    2.75,
+    0
+  ],
+  "profileScale": 0.5,
+  "profileTranslation": [
+    0,
+    1.0,
+    -6
+  ],
+  "rootBone": "prismodon",
+  "animations": {
+    "faint": "q.bedrock_primary('prismodon', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('prismodon', 'cry')",
+    "recoil": "q.bedrock_stateful('prismodon', 'recoil')",
+    "physical": "q.bedrock_primary('prismodon', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('prismodon', 'special', q.curve('symmetrical_wide'))",
+    "status": "q.bedrock_primary('prismodon', 'status', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('prismodon', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('prismodon', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE",
+        "FLOAT"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('prismodon', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('prismodon', 'blink')"
+      ]
+    },
+    "walk": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "condition": "!q.is_sprinting",
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('prismodon', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('prismodon', 'blink')"
+      ]
+    },
+    "run": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "condition": "q.is_sprinting",
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('prismodon', 'ground_run')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('prismodon', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": [
+        "q.bedrock('prismodon', 'sleep')"
+      ]
+    }
+  }
+}
