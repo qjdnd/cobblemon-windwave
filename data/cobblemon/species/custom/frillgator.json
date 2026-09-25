@@ -1,0 +1,174 @@
+{
+  "implemented": true,
+  "nationalPokedexNumber": 2004,
+  "name": "Frillgator",
+  "primaryType": "grass",
+  "secondaryType": "dragon",
+  "maleRatio": 0.5,
+  "height": 8,
+  "weight": 245,
+  "pokedex": [
+    "cobblemon.species.frillgator.desc"
+  ],
+  "labels": [
+    "custom",
+    "windwave"
+  ],
+  "aspects": [],
+  "abilities": [
+    "strongjaw",
+    "intimidate",
+    "h:leafguard"
+  ],
+  "eggGroups": [
+    "monster",
+    "dragon"
+  ],
+  "baseStats": {
+    "hp": 75,
+    "attack": 92,
+    "defence": 72,
+    "special_attack": 70,
+    "special_defence": 66,
+    "speed": 85
+  },
+  "evYield": {
+    "hp": 0,
+    "attack": 2,
+    "defence": 0,
+    "special_attack": 0,
+    "special_defence": 0,
+    "speed": 0
+  },
+  "baseExperienceYield": 158,
+  "experienceGroup": "medium_slow",
+  "catchRate": 75,
+  "eggCycles": 20,
+  "baseFriendship": 50,
+  "shoulderMountable": false,
+  "baseScale": 0.4,
+  "hitbox": {
+    "width": 0.85,
+    "height": 0.8,
+    "fixed": false
+  },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": true,
+      "light": "0-4",
+      "times": [
+        "night"
+      ],
+      "drowsyChance": 0.0033,
+      "rouseChance": 0.0042
+    },
+    "moving": {
+      "swim": {
+        "swimSpeed": 0.3
+      },
+      "walk": {
+        "walkSpeed": 0.3
+      }
+    },
+    "combat": {
+      "willDefendOwner": true
+    },
+    "herd": {
+      "maxSize": 3,
+      "toleratedLeaders": [
+        {
+          "pokemon": "frillgator alpha",
+          "tier": 1
+        }
+      ]
+    }
+  },
+  "drops": {
+    "amount": 1,
+    "entries": [
+      {
+        "item": "cobblemon:miracle_seed",
+        "percentage": 5
+      },
+      {
+        "item": "cobblemon:dragon_fang",
+        "percentage": 2.5
+      }
+    ]
+  },
+  "moves": [
+    "1:tackle",
+    "1:leer",
+    "1:leafage",
+    "5:bite",
+    "9:dragonbreath",
+    "13:razorleaf",
+    "17:scaryface",
+    "21:icefang",
+    "25:dragontail",
+    "29:crunch",
+    "33:leafblade",
+    "37:dragonclaw",
+    "41:thrash",
+    "45:psychicfangs",
+    "49:outrage",
+    "53:leafstorm",
+    "egg:ancientpower",
+    "egg:aquajet",
+    "egg:curse",
+    "egg:dragondance",
+    "egg:fakeout",
+    "egg:firefang",
+    "egg:grassyglide",
+    "egg:thunderfang",
+    "tm:aquatail",
+    "tm:bodyslam",
+    "tm:breakingswipe",
+    "tm:brickbreak",
+    "tm:bulldoze",
+    "tm:bulletseed",
+    "tm:crunch",
+    "tm:dig",
+    "tm:doubleedge",
+    "tm:dragonclaw",
+    "tm:dragondance",
+    "tm:dragonpulse",
+    "tm:dragontail",
+    "tm:earthquake",
+    "tm:endure",
+    "tm:energyball",
+    "tm:facade",
+    "tm:firefang",
+    "tm:gigadrain",
+    "tm:gigaimpact",
+    "tm:grassknot",
+    "tm:grassyglide",
+    "tm:grassyterrain",
+    "tm:hyperbeam",
+    "tm:icefang",
+    "tm:irontail",
+    "tm:leafstorm",
+    "tm:magicalleaf",
+    "tm:mudshot",
+    "tm:mudslap",
+    "tm:outrage",
+    "tm:protect",
+    "tm:rest",
+    "tm:rockslide",
+    "tm:rocktomb",
+    "tm:scaleshot",
+    "tm:scaryface",
+    "tm:seedbomb",
+    "tm:sleeptalk",
+    "tm:solarbeam",
+    "tm:substitute",
+    "tm:swordsdance",
+    "tm:takedown",
+    "tm:taunt",
+    "tm:terablast",
+    "tm:thunderfang",
+    "tm:trailblaze"
+  ],
+  "evolutions": []
+}

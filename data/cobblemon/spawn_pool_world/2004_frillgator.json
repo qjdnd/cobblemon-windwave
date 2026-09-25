@@ -1,0 +1,66 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "frillgator-1",
+      "pokemon": "frillgator",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-38",
+      "weight": 3,
+      "condition": {
+        "canSeeSky": true,
+        "biomes": [
+          "#cobblemon:is_jungle"
+        ]
+      }
+    },
+    {
+      "id": "frillgator-2",
+      "pokemon": "frillgator",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "18-38",
+      "weight": 3,
+      "condition": {
+        "biomes": [
+          "#cobblemon:is_swamp"
+        ]
+      }
+    },
+    {
+      "id": "frillgator-3",
+      "pokemon": "frillgator",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "18-38",
+      "weight": 2,
+      "condition": {
+        "canSeeSky": true,
+        "biomes": [
+          "#cobblemon:is_river",
+          "#cobblemon:is_lush"
+        ]
+      },
+      "anticondition": {
+        "biomes": [
+          "#cobblemon:is_freezing"
+        ]
+      }
+    }
+  ]
+}

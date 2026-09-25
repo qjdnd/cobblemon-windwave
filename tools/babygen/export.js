@@ -27,7 +27,7 @@ for (const p of POKEMON) {
   written.push(w(`assets/cobblemon/bedrock/pokemon/resolvers/${folder}/0_${p.id}_base.json`, resolverJson(p)));
   for (const t of textures) written.push(w(`assets/cobblemon/textures/pokemon/${folder}/${t.name}`, t.png));
   written.push(w(`data/cobblemon/species/custom/${p.id}.json`, speciesJson(p)));
-  written.push(w(`data/cobblemon/species_additions/${p.evolvesTo}_${p.id}.json`, { target: `cobblemon:${p.evolvesTo}`, preEvolution: p.id }));
+  if (p.evolvesTo) written.push(w(`data/cobblemon/species_additions/${p.evolvesTo}_${p.id}.json`, { target: `cobblemon:${p.evolvesTo}`, preEvolution: p.id }));
   written.push(w(`data/cobblemon/spawn_pool_world/${folder}.json`, spawnJson(p)));
   written.push(w(`data/cobblemon/dex_entries/pokemon/custom/${p.id}.json`, dexEntryJson(p)));
   lang.en_us[`cobblemon.species.${p.id}.name`] = p.name.en;
@@ -46,7 +46,7 @@ written.push(w('pack.mcmeta', {
   pack: {
     pack_format: 48,
     supported_formats: [34, 48],
-    description: 'Cobblemon Wind Wave - baby Meowth, Zubat & Litwick',
+    description: 'Cobblemon Wind Wave - Baby Meowth, Baby Zubat, Baby Litwick & Frillgator',
   },
 }));
 console.log(`wrote ${written.length} files to ${root}`);

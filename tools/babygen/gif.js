@@ -9,6 +9,7 @@ const PLANS = {
   babymeowth: { yaw: 28, pitch: 16, cells: [['ground_idle', true], ['ground_walk', true], ['battle_idle', true], ['sleep', true], ['cry', false], ['physical', false], ['special', false], ['look_quirk', false], ['faint', false]] },
   babyzubat: { yaw: 22, pitch: 10, cells: [['air_idle', true], ['air_fly', true], ['battle_idle', true], ['sleep', true], ['cry', false], ['physical', false], ['special', false], ['look_quirk', false], ['faint', false]] },
   babylitwick: { yaw: 25, pitch: 10, cells: [['ground_idle', true], ['ground_walk', true], ['battle_idle', true], ['sleep', true], ['cry', false], ['physical', false], ['special', false], ['recoil', false], ['faint', false]], emissive: [2] },
+  frillgator: { yaw: -25, pitch: 12, cells: [['ground_idle', true], ['ground_walk', true], ['battle_idle', true], ['sleep', true], ['cry', false], ['physical', false], ['special', false], ['look_quirk', false], ['faint', false]] },
 };
 const CYCLE = 4.0, FPS = 12.5;
 

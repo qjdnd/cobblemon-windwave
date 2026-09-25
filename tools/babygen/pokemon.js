@@ -1,7 +1,7 @@
-// Cobblemon (1.8.1) data for the three baby Pokemon: species, poser, resolver, dex, spawns, lang.
+// Cobblemon (1.8.1) data for the Wind Wave Pokemon (three babies + Frillgator): species, poser, resolver, dex, spawns, lang.
 'use strict';
 
-const EVOLVED_MOVES = require('./evolved_moves.json'); // egg / tm / tutor / legacy / special lists of the evolved forms
+const EVOLVED_MOVES = require('./evolved_moves.json'); // egg / tm / tutor / legacy / special lists of the babies' evolved forms
 
 const q = (id) => (s) => s.replace(/\$/g, id);
 
@@ -116,12 +116,63 @@ const POKEMON = [
       { id: 3, bucket: 'rare', level: '1-15', weight: 1.5, presets: ['natural'], condition: { maxSkyLight: 7, minSkyLight: 0, biomes: ['#cobblemon:is_spooky'], timeRange: 'night' } },
     ],
   },
+  {
+    // stand-alone species: no pre-evolution, no evolution
+    id: 'frillgator', dex: 2004,
+    name: { en: 'Frillgator', ko: '갈기악어' },
+    desc: {
+      en: 'When startled it fans out the frills on the sides of its head to look bigger. Each of its huge eyes swivels on its own, so no insect buzzing over the riverbank escapes it.',
+      ko: '놀라면 머리 양옆의 갈기를 활짝 펼쳐 몸을 크게 보이게 한다. 커다란 두 눈을 제각각 굴릴 수 있어서 물가를 날아다니는 벌레를 놓치는 법이 없다.',
+    },
+    labels: ['custom', 'windwave'],
+    species: {
+      primaryType: 'grass', secondaryType: 'dragon', maleRatio: 0.5, height: 8, weight: 245,
+      abilities: ['strongjaw', 'intimidate', 'h:leafguard'],
+      eggGroups: ['monster', 'dragon'],
+      baseStats: { hp: 75, attack: 92, defence: 72, special_attack: 70, special_defence: 66, speed: 85 },
+      evYield: { hp: 0, attack: 2, defence: 0, special_attack: 0, special_defence: 0, speed: 0 },
+      baseExperienceYield: 158, experienceGroup: 'medium_slow', catchRate: 75, eggCycles: 20, baseFriendship: 50,
+      shoulderMountable: false,
+      baseScale: 0.4, hitbox: { width: 0.85, height: 0.8, fixed: false },
+      levelMoves: [
+        '1:tackle', '1:leer', '1:leafage', '5:bite', '9:dragonbreath', '13:razorleaf', '17:scaryface', '21:icefang',
+        '25:dragontail', '29:crunch', '33:leafblade', '37:dragonclaw', '41:thrash', '45:psychicfangs', '49:outrage', '53:leafstorm',
+      ],
+      otherMoves: [
+        'egg:ancientpower', 'egg:aquajet', 'egg:curse', 'egg:dragondance', 'egg:fakeout', 'egg:firefang', 'egg:grassyglide', 'egg:thunderfang',
+        'tm:aquatail', 'tm:bodyslam', 'tm:breakingswipe', 'tm:brickbreak', 'tm:bulldoze', 'tm:bulletseed', 'tm:crunch', 'tm:dig',
+        'tm:doubleedge', 'tm:dragonclaw', 'tm:dragondance', 'tm:dragonpulse', 'tm:dragontail', 'tm:earthquake', 'tm:endure',
+        'tm:energyball', 'tm:facade', 'tm:firefang', 'tm:gigadrain', 'tm:gigaimpact', 'tm:grassknot', 'tm:grassyglide',
+        'tm:grassyterrain', 'tm:hyperbeam', 'tm:icefang', 'tm:irontail', 'tm:leafstorm', 'tm:magicalleaf', 'tm:mudshot',
+        'tm:mudslap', 'tm:outrage', 'tm:protect', 'tm:rest', 'tm:rockslide', 'tm:rocktomb', 'tm:scaleshot', 'tm:scaryface',
+        'tm:seedbomb', 'tm:sleeptalk', 'tm:solarbeam', 'tm:substitute', 'tm:swordsdance', 'tm:takedown', 'tm:taunt',
+        'tm:terablast', 'tm:thunderfang', 'tm:trailblaze',
+      ],
+      behaviour: {
+        resting: { canSleep: true, willSleepOnBed: true, light: '0-4', times: ['night'], drowsyChance: 0.0033, rouseChance: 0.0042 },
+        moving: { swim: { swimSpeed: 0.3 }, walk: { walkSpeed: 0.3 } },
+        combat: { willDefendOwner: true },
+        herd: { maxSize: 3, toleratedLeaders: [{ pokemon: 'frillgator alpha', tier: 1 }] },
+      },
+      drops: { amount: 1, entries: [{ item: 'cobblemon:miracle_seed', percentage: 5.0 }, { item: 'cobblemon:dragon_fang', percentage: 2.5 }] },
+    },
+    poser: {
+      look: "q.look('head', 1, 1, 12, -12, 30, -30)",
+      portraitScale: 0.85, portraitTranslation: [-0.1, 1.1, 0],
+      profileScale: 0.6, profileTranslation: [0, 0.95, 0],
+    },
+    spawns: [
+      { id: 1, bucket: 'uncommon', level: '18-38', weight: 3.0, presets: ['natural'], condition: { canSeeSky: true, biomes: ['#cobblemon:is_jungle'] } },
+      { id: 2, bucket: 'uncommon', level: '18-38', weight: 3.0, presets: ['natural'], condition: { biomes: ['#cobblemon:is_swamp'] } },
+      { id: 3, bucket: 'rare', level: '18-38', weight: 2.0, presets: ['natural'], condition: { canSeeSky: true, biomes: ['#cobblemon:is_river', '#cobblemon:is_lush'] }, anticondition: { biomes: ['#cobblemon:is_freezing'] } },
+    ],
+  },
 ];
 
 // ------------------------------------------------------------------ builders
 function speciesJson(p) {
   const s = p.species;
-  const ev = EVOLVED_MOVES[p.evolvesTo];
+  const ev = p.evolvesTo ? EVOLVED_MOVES[p.evolvesTo] : s.otherMoves;
   const out = {
     implemented: true,
     nationalPokedexNumber: p.dex,
@@ -132,10 +183,10 @@ function speciesJson(p) {
   Object.assign(out, {
     maleRatio: s.maleRatio, height: s.height, weight: s.weight,
     pokedex: [`cobblemon.species.${p.id}.desc`],
-    labels: ['custom', 'baby', 'windwave'],
+    labels: p.labels || ['custom', 'baby', 'windwave'],
     aspects: [],
     abilities: s.abilities,
-    eggGroups: ['undiscovered'],
+    eggGroups: s.eggGroups || ['undiscovered'],
     baseStats: s.baseStats,
     evYield: s.evYield,
     baseExperienceYield: s.baseExperienceYield,
@@ -143,7 +194,7 @@ function speciesJson(p) {
     catchRate: s.catchRate,
     eggCycles: s.eggCycles,
     baseFriendship: s.baseFriendship,
-    shoulderMountable: true,
+    shoulderMountable: s.shoulderMountable ?? true,
   });
   for (const k of ['standingEyeHeight', 'swimmingEyeHeight', 'flyingEyeHeight']) if (s[k] !== undefined) out[k] = s[k];
   Object.assign(out, {
@@ -152,10 +203,10 @@ function speciesJson(p) {
     behaviour: s.behaviour,
     drops: s.drops,
     moves: [...s.levelMoves, ...ev],
-    evolutions: [{
+    evolutions: p.evolvesTo ? [{
       id: `${p.id}_${p.evolvesTo}`, variant: 'level_up', result: p.evolvesTo, consumeHeldItem: false, learnableMoves: [],
       requirements: [{ variant: 'friendship', amount: 160 }],
-    }],
+    }] : [],
   });
   if (s.lightingData) out.lightingData = s.lightingData;
   return out;
@@ -219,6 +270,27 @@ function poserJson(p) {
         sleep: { poseTypes: ['SLEEP'], namedAnimations: { cry: "q.bedrock_stateful('dummy', 'cry')" }, animations: [b('sleep')] },
         shoulder_left: shoulder('left'),
         shoulder_right: shoulder('right'),
+      },
+    };
+  }
+  if (id === 'frillgator') {
+    return {
+      ...common,
+      animations: {
+        faint: `q.bedrock_primary('${id}', 'faint', q.curve('one'))`,
+        cry: `q.bedrock_stateful('${id}', 'cry')`,
+        recoil: `q.bedrock_stateful('${id}', 'recoil')`,
+        physical: `q.bedrock_primary('${id}', 'physical', q.curve('symmetrical_wide'))`,
+        special: `q.bedrock_primary('${id}', 'special', q.curve('symmetrical_wide'))`,
+      },
+      poses: {
+        'battle-standing': { poseTypes: ['STAND'], isBattle: true, animations: [look, b('battle_idle')], quirks: [blink] },
+        // now and then its googly eyes roll round, cross, and it blinks them straight again
+        standing: { poseTypes: ['STAND', 'NONE', 'PORTRAIT', 'PROFILE'], isBattle: false, animations: [look, b('ground_idle')], quirks: [blink, `q.bedrock_quirk('${id}', 'look_quirk', 20, 50, 1)`] },
+        walking: { poseTypes: ['WALK'], animations: [look, b('ground_walk')], quirks: [blink] },
+        float: { poseTypes: ['FLOAT'], animations: [look, b('water_idle')], quirks: [blink] },
+        swim: { poseTypes: ['SWIM'], animations: [look, b('water_swim')], quirks: [blink] },
+        sleep: { poseTypes: ['SLEEP'], namedAnimations: { cry: "q.bedrock_stateful('dummy', 'cry')" }, animations: [b('sleep')] },
       },
     };
   }

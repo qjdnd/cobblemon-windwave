@@ -1,12 +1,12 @@
 {
   "name": "babygen",
   "private": true,
-  "description": "Generator for the Wind Wave baby Pokemon Blockbench models, textures, animations and Cobblemon data",
+  "description": "Generator for the Wind Wave Pokemon (baby Meowth, Zubat, Litwick and Frillgator): Blockbench models, textures, animations and Cobblemon data",
   "scripts": {
-    "build": "node build.js babymeowth && node build.js babyzubat && node build.js babylitwick",
+    "build": "node build.js babymeowth && node build.js babyzubat && node build.js babylitwick && node build.js frillgator",
     "export": "npm run build && node export.js ../..",
-    "verify": "node roundtrip.js babymeowth -:0 ground_idle:0.7 cry:0.45 sleep:1 faint:1.5 && node roundtrip.js babyzubat -:0 air_idle:0.13 sleep:0 cry:0.35 && node roundtrip.js babylitwick -:0 ground_idle:0.7 cry:0.4 special:0.6 faint:1.4",
-    "previews": "node gif.js babymeowth out/gif_babymeowth && node gif.js babyzubat out/gif_babyzubat && node gif.js babylitwick out/gif_babylitwick && node showcase.js && python3 previews.py"
+    "verify": "node roundtrip.js babymeowth -:0 ground_idle:0.7 cry:0.45 sleep:1 faint:1.5 && node roundtrip.js babyzubat -:0 air_idle:0.13 sleep:0 cry:0.35 && node roundtrip.js babylitwick -:0 ground_idle:0.7 cry:0.4 special:0.6 faint:1.4 && node roundtrip.js frillgator -:0 ground_idle:0.7 sleep:1 cry:0.5 faint:1.6",
+    "previews": "node gif.js babymeowth out/gif_babymeowth && node gif.js babyzubat out/gif_babyzubat && node gif.js babylitwick out/gif_babylitwick && node gif.js frillgator out/gif_frillgator && node showcase.js && python3 previews.py"
   },
   "dependencies": {
     "pngjs": "^7.0.0",
