@@ -1,0 +1,118 @@
+{
+  "portraitScale": 1.25,
+  "portraitTranslation": [
+    -0.62,
+    -0.36,
+    0
+  ],
+  "profileScale": 0.62,
+  "profileTranslation": [
+    0,
+    0.78,
+    0
+  ],
+  "rootBone": "babymeowth",
+  "animations": {
+    "faint": "q.bedrock_primary('babymeowth', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('babymeowth', 'cry')",
+    "recoil": "q.bedrock_stateful('babymeowth', 'recoil')",
+    "physical": "q.bedrock_primary('babymeowth', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('babymeowth', 'special', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babymeowth', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babymeowth', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE",
+        "FLOAT"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babymeowth', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babymeowth', 'look_quirk', 15, 40, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babymeowth', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babymeowth', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": [
+        "q.bedrock('babymeowth', 'sleep')"
+      ]
+    },
+    "shoulder_left": {
+      "poseTypes": [
+        "SHOULDER_LEFT"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babymeowth', 'ground_idle')"
+      ],
+      "quirks": [],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            -7.8,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "shoulder_right": {
+      "poseTypes": [
+        "SHOULDER_RIGHT"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babymeowth', 'ground_idle')"
+      ],
+      "quirks": [],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            7.8,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

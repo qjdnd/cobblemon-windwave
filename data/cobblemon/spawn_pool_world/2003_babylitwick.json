@@ -1,0 +1,63 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "babylitwick-1",
+      "pokemon": "babylitwick",
+      "presets": [
+        "mansion"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "1-15",
+      "weight": 10,
+      "condition": {
+        "canSeeSky": false,
+        "biomes": [
+          "#cobblemon:is_overworld"
+        ],
+        "timeRange": "night"
+      }
+    },
+    {
+      "id": "babylitwick-2",
+      "pokemon": "babylitwick",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "uncommon",
+      "level": "1-15",
+      "weight": 3,
+      "condition": {
+        "biomes": [
+          "#cobblemon:nether/is_soul_fire"
+        ]
+      }
+    },
+    {
+      "id": "babylitwick-3",
+      "pokemon": "babylitwick",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "1-15",
+      "weight": 1.5,
+      "condition": {
+        "maxSkyLight": 7,
+        "minSkyLight": 0,
+        "biomes": [
+          "#cobblemon:is_spooky"
+        ],
+        "timeRange": "night"
+      }
+    }
+  ]
+}

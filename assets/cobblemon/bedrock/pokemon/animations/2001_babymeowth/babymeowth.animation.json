@@ -1,0 +1,2092 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.babymeowth.ground_idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": [
+            "1+0.012*math.sin(q.anim_time*144)",
+            "1+0.025*math.sin(q.anim_time*144)",
+            "1+0.012*math.sin(q.anim_time*144)"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-(1.5*math.sin(q.anim_time*144-40))",
+            "-(3*math.sin(q.anim_time*60))",
+            "2.5*math.sin(q.anim_time*72+30)"
+          ],
+          "position": [
+            0,
+            "0.12*math.sin(q.anim_time*144-40)",
+            0
+          ]
+        },
+        "ear_right": {
+          "rotation": [
+            "-(-10*math.pow(math.max(0, math.sin(q.anim_time*90)), 24))",
+            0,
+            "-14*math.pow(math.max(0, math.sin(q.anim_time*90)), 24)"
+          ]
+        },
+        "ear_left": {
+          "rotation": [
+            "-(-10*math.pow(math.max(0, math.sin(q.anim_time*90+200)), 24))",
+            0,
+            "14*math.pow(math.max(0, math.sin(q.anim_time*90+200)), 24)"
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "-(3*math.sin(q.anim_time*100))",
+            "-(10*math.sin(q.anim_time*100))",
+            "4*math.sin(q.anim_time*100-30)"
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "-(6*math.sin(q.anim_time*100-60))",
+            "-(8*math.sin(q.anim_time*100-60))",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            "-(10*math.sin(q.anim_time*100-110))",
+            "-(8*math.sin(q.anim_time*100-120))",
+            "5*math.sin(q.anim_time*100-120)"
+          ]
+        },
+        "arm_right": {
+          "rotation": [
+            "-(-4*math.max(0, math.sin(q.anim_time*120)))",
+            0,
+            0
+          ]
+        },
+        "arm_left": {
+          "rotation": [
+            "-(-4*math.max(0, math.sin(q.anim_time*120+180)))",
+            0,
+            0
+          ]
+        },
+        "coins": {
+          "rotation": [
+            0,
+            "-(8*math.sin(q.anim_time*45))",
+            0
+          ],
+          "position": [
+            0,
+            "0.3*math.sin(q.anim_time*72)",
+            0
+          ]
+        },
+        "coin_forehead": {
+          "rotation": [
+            0,
+            0,
+            "3*math.sin(q.anim_time*144+90)"
+          ]
+        },
+        "coin_left": {
+          "rotation": [
+            0,
+            "-(q.anim_time*90)",
+            "4*math.sin(q.anim_time*120+40)"
+          ],
+          "position": [
+            0,
+            "0.6*math.sin(q.anim_time*120)",
+            0
+          ]
+        },
+        "coin_middle": {
+          "rotation": [
+            0,
+            "-(q.anim_time*90+60)",
+            "4*math.sin(q.anim_time*120+160)"
+          ],
+          "position": [
+            0,
+            "0.6*math.sin(q.anim_time*120+120)",
+            0
+          ]
+        },
+        "coin_right": {
+          "rotation": [
+            0,
+            "-(q.anim_time*90+120)",
+            "4*math.sin(q.anim_time*120+280)"
+          ],
+          "position": [
+            0,
+            "0.6*math.sin(q.anim_time*120+240)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.babymeowth.ground_walk": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            "-(1.5*math.sin(q.anim_time*1080+90))",
+            "-(2*math.sin(q.anim_time*540))",
+            "3.5*math.sin(q.anim_time*540)"
+          ],
+          "position": [
+            0,
+            "0.45*math.abs(math.sin(q.anim_time*540))",
+            0
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-(2+2.5*math.sin(q.anim_time*1080+40))",
+            "-(-3*math.sin(q.anim_time*540+20))",
+            "-2.5*math.sin(q.anim_time*540+20)"
+          ]
+        },
+        "arm_right": {
+          "rotation": [
+            "-(18*math.max(0, math.sin(q.anim_time*540)))",
+            0,
+            0
+          ],
+          "position": [
+            0,
+            "0.6*math.max(0, math.sin(q.anim_time*540))",
+            "-0.9*math.sin(q.anim_time*540+90)"
+          ]
+        },
+        "arm_left": {
+          "rotation": [
+            "-(18*math.max(0, math.sin(q.anim_time*540+180)))",
+            0,
+            0
+          ],
+          "position": [
+            0,
+            "0.6*math.max(0, math.sin(q.anim_time*540+180))",
+            "-0.9*math.sin(q.anim_time*540+270)"
+          ]
+        },
+        "leg_right": {
+          "position": [
+            0,
+            "0.4*math.max(0, math.sin(q.anim_time*540+180))",
+            "-0.8*math.sin(q.anim_time*540+270)"
+          ]
+        },
+        "leg_left": {
+          "position": [
+            0,
+            "0.4*math.max(0, math.sin(q.anim_time*540))",
+            "-0.8*math.sin(q.anim_time*540+90)"
+          ]
+        },
+        "ear_right": {
+          "rotation": [
+            "-(-4*math.sin(q.anim_time*1080+60))",
+            0,
+            "-3*math.sin(q.anim_time*540+60)"
+          ]
+        },
+        "ear_left": {
+          "rotation": [
+            "-(-4*math.sin(q.anim_time*1080+60))",
+            0,
+            "-3*math.sin(q.anim_time*540+60)"
+          ]
+        },
+        "tail": {
+          "rotation": [
+            "-(-6+-6*math.sin(q.anim_time*1080))",
+            "-(16*math.sin(q.anim_time*540-20))",
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "-(6*math.sin(q.anim_time*1080-40))",
+            "-(12*math.sin(q.anim_time*540-70))",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            "-(8*math.sin(q.anim_time*1080-80))",
+            "-(14*math.sin(q.anim_time*540-120))",
+            0
+          ]
+        },
+        "coins": {
+          "rotation": [
+            "-(3*math.sin(q.anim_time*1080-90))",
+            0,
+            "3*math.sin(q.anim_time*540-60)"
+          ],
+          "position": [
+            0,
+            "0.5*math.sin(q.anim_time*1080-90)",
+            0.6
+          ]
+        },
+        "eyes": {
+          "position": [
+            0,
+            0,
+            -0.45
+          ]
+        },
+        "coin_left": {
+          "rotation": [
+            0,
+            "-(q.anim_time*140)",
+            "4*math.sin(q.anim_time*270+40)"
+          ],
+          "position": [
+            0,
+            "0.7*math.sin(q.anim_time*270)",
+            0
+          ]
+        },
+        "coin_middle": {
+          "rotation": [
+            0,
+            "-(q.anim_time*140+60)",
+            "4*math.sin(q.anim_time*270+160)"
+          ],
+          "position": [
+            0,
+            "0.7*math.sin(q.anim_time*270+120)",
+            0
+          ]
+        },
+        "coin_right": {
+          "rotation": [
+            0,
+            "-(q.anim_time*140+120)",
+            "4*math.sin(q.anim_time*270+280)"
+          ],
+          "position": [
+            0,
+            "0.7*math.sin(q.anim_time*270+240)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.babymeowth.battle_idle": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [
+            2,
+            0,
+            0
+          ],
+          "scale": [
+            "1+0.015*math.sin(q.anim_time*240)",
+            "1+0.03*math.sin(q.anim_time*240)",
+            "1+0.015*math.sin(q.anim_time*240)"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-(5+1.5*math.sin(q.anim_time*240-40))",
+            "-(4*math.sin(q.anim_time*80))",
+            "2*math.sin(q.anim_time*120)"
+          ],
+          "position": [
+            0,
+            "0.4+0.1*math.sin(q.anim_time*240-40)",
+            0
+          ]
+        },
+        "ear_right": {
+          "rotation": [
+            "-(8+3*math.sin(q.anim_time*240))",
+            0,
+            "-12*math.pow(math.max(0, math.sin(q.anim_time*120)), 24)"
+          ]
+        },
+        "ear_left": {
+          "rotation": [
+            "-(8+3*math.sin(q.anim_time*240))",
+            0,
+            "12*math.pow(math.max(0, math.sin(q.anim_time*120+150)), 24)"
+          ]
+        },
+        "tail": {
+          "rotation": [
+            18,
+            "-(14*math.sin(q.anim_time*160))",
+            "4*math.sin(q.anim_time*160-30)"
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            "-(-8+8*math.sin(q.anim_time*160-60))",
+            "-(10*math.sin(q.anim_time*160-60))",
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            "-(4+10*math.sin(q.anim_time*160-110))",
+            "-(10*math.sin(q.anim_time*160-120))",
+            0
+          ]
+        },
+        "arm_right": {
+          "rotation": [
+            "-(4+3*math.sin(q.anim_time*240))",
+            0,
+            0
+          ],
+          "position": [
+            0,
+            0,
+            -0.4
+          ]
+        },
+        "arm_left": {
+          "rotation": [
+            "-(4+3*math.sin(q.anim_time*240+180))",
+            0,
+            0
+          ],
+          "position": [
+            0,
+            0,
+            -0.4
+          ]
+        },
+        "coins": {
+          "rotation": [
+            0,
+            "-(q.anim_time*60)",
+            0
+          ],
+          "position": [
+            0,
+            "1+0.5*math.sin(q.anim_time*120)",
+            0
+          ]
+        },
+        "coin_forehead": {
+          "rotation": [
+            0,
+            0,
+            "4*math.sin(q.anim_time*240+90)"
+          ]
+        },
+        "eyes": {
+          "position": [
+            0,
+            0,
+            -0.45
+          ]
+        },
+        "coin_left": {
+          "rotation": [
+            0,
+            "-(q.anim_time*200)",
+            "4*math.sin(q.anim_time*200+40)"
+          ],
+          "position": [
+            0,
+            "0.7*math.sin(q.anim_time*200)",
+            0
+          ]
+        },
+        "coin_middle": {
+          "rotation": [
+            0,
+            "-(q.anim_time*200+60)",
+            "4*math.sin(q.anim_time*200+160)"
+          ],
+          "position": [
+            0,
+            "0.7*math.sin(q.anim_time*200+120)",
+            0
+          ]
+        },
+        "coin_right": {
+          "rotation": [
+            0,
+            "-(q.anim_time*200+120)",
+            "4*math.sin(q.anim_time*200+280)"
+          ],
+          "position": [
+            0,
+            "0.7*math.sin(q.anim_time*200+240)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.babymeowth.sleep": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "scale": [
+            "1.02+0.015*math.sin(q.anim_time*90)",
+            "0.94+0.035*math.sin(q.anim_time*90)",
+            "1.02+0.015*math.sin(q.anim_time*90)"
+          ]
+        },
+        "head": {
+          "rotation": [
+            "-(-7+1.2*math.sin(q.anim_time*90-60))",
+            -6,
+            8
+          ],
+          "position": [
+            0,
+            "-1.1+0.12*math.sin(q.anim_time*90-60)",
+            0
+          ]
+        },
+        "ear_right": {
+          "rotation": [
+            12,
+            0,
+            -18
+          ]
+        },
+        "ear_left": {
+          "rotation": [
+            12,
+            0,
+            18
+          ]
+        },
+        "tail": {
+          "rotation": [
+            -36,
+            -70,
+            0
+          ],
+          "position": [
+            0,
+            -1.4,
+            0
+          ]
+        },
+        "tail2": {
+          "rotation": [
+            -50,
+            -58,
+            0
+          ]
+        },
+        "tail3": {
+          "rotation": [
+            -55,
+            "-(48+3*math.sin(q.anim_time*90-60))",
+            0
+          ]
+        },
+        "tail4": {
+          "rotation": [
+            -65,
+            "-(38+6*math.sin(q.anim_time*90-120))",
+            0
+          ]
+        },
+        "arm_right": {
+          "rotation": [
+            0,
+            8,
+            0
+          ],
+          "position": [
+            -0.5,
+            0,
+            0.5
+          ]
+        },
+        "arm_left": {
+          "rotation": [
+            0,
+            -8,
+            0
+          ],
+          "position": [
+            0.5,
+            0,
+            0.5
+          ]
+        },
+        "coins": {
+          "rotation": [
+            0,
+            "-(q.anim_time*20)",
+            0
+          ],
+          "position": [
+            0,
+            "-3.5+0.4*math.sin(q.anim_time*60)",
+            1
+          ]
+        },
+        "coin_left": {
+          "rotation": [
+            0,
+            "-(q.anim_time*25)",
+            "4*math.sin(q.anim_time*60+40)"
+          ],
+          "position": [
+            0,
+            "0.4*math.sin(q.anim_time*60)",
+            0
+          ]
+        },
+        "coin_middle": {
+          "rotation": [
+            0,
+            "-(q.anim_time*25+60)",
+            "4*math.sin(q.anim_time*60+160)"
+          ],
+          "position": [
+            0,
+            "0.4*math.sin(q.anim_time*60+120)",
+            0
+          ]
+        },
+        "coin_right": {
+          "rotation": [
+            0,
+            "-(q.anim_time*25+120)",
+            "4*math.sin(q.anim_time*60+280)"
+          ],
+          "position": [
+            0,
+            "0.4*math.sin(q.anim_time*60+240)",
+            0
+          ]
+        }
+      }
+    },
+    "animation.babymeowth.blink": {
+      "animation_length": 0.1667,
+      "bones": {
+        "eyes": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.0417": [
+              0,
+              0,
+              0.45
+            ],
+            "0.125": [
+              0,
+              0,
+              0.45
+            ],
+            "0.1667": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.babymeowth.look_quirk": {
+      "animation_length": 3.5,
+      "bones": {
+        "eyes": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              0,
+              0,
+              0
+            ],
+            "0.2917": [
+              0,
+              0,
+              -0.45
+            ],
+            "3.0": [
+              0,
+              0,
+              -0.45
+            ],
+            "3.0417": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.5": {
+              "post": [
+                -4,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.0": {
+              "post": [
+                -3,
+                -22,
+                6
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.6": {
+              "post": [
+                -3,
+                -22,
+                6
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "2.1": {
+              "post": [
+                -3,
+                20,
+                -6
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "2.7": {
+              "post": [
+                -3,
+                20,
+                -6
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "3.2": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "3.5": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "ear_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              -6,
+              0,
+              6
+            ],
+            "1.0": [
+              -4,
+              -10,
+              2
+            ],
+            "2.1": [
+              -4,
+              6,
+              8
+            ],
+            "3.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              -6,
+              0,
+              -6
+            ],
+            "1.0": [
+              -4,
+              -6,
+              -8
+            ],
+            "2.1": [
+              -4,
+              10,
+              -2
+            ],
+            "3.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.babymeowth.cry": {
+      "animation_length": 1.25,
+      "bones": {
+        "head": {
+          "rotation": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1667": {
+              "post": [
+                4,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.375": {
+              "post": [
+                -14,
+                0,
+                -4
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.7": {
+              "post": [
+                -12,
+                0,
+                5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.0": {
+              "post": [
+                -2,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "body": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.1667": [
+              1.03,
+              0.94,
+              1.03
+            ],
+            "0.375": [
+              0.98,
+              1.05,
+              0.98
+            ],
+            "0.7": [
+              1,
+              1.02,
+              1
+            ],
+            "1.0": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "mouth": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.125": [
+              0,
+              0,
+              0
+            ],
+            "0.1667": [
+              0,
+              0,
+              -0.45
+            ],
+            "0.875": [
+              0,
+              0,
+              -0.45
+            ],
+            "0.9167": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              8,
+              0,
+              -6
+            ],
+            "0.375": [
+              -10,
+              0,
+              8
+            ],
+            "0.9": [
+              -6,
+              0,
+              4
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              8,
+              0,
+              6
+            ],
+            "0.375": [
+              -10,
+              0,
+              -8
+            ],
+            "0.9": [
+              -6,
+              0,
+              -4
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              15,
+              -20,
+              0
+            ],
+            "0.5": [
+              15,
+              20,
+              0
+            ],
+            "0.75": [
+              15,
+              -20,
+              0
+            ],
+            "1.0": [
+              8,
+              8,
+              0
+            ],
+            "1.25": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "coins": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              -360,
+              0
+            ],
+            "1.25": [
+              0,
+              -360,
+              0
+            ]
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.2": {
+              "post": [
+                0,
+                -0.8,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.45": {
+              "post": [
+                0,
+                3.2,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.8": {
+              "post": [
+                0,
+                0.6,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.0": {
+              "post": [
+                0,
+                1,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.25": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          }
+        },
+        "coin_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.35": [
+              0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              -360,
+              0
+            ]
+          }
+        },
+        "coin_middle": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.4": [
+              0,
+              0,
+              0
+            ],
+            "0.95": [
+              0,
+              360,
+              0
+            ]
+          }
+        },
+        "coin_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.45": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              -360,
+              0
+            ]
+          }
+        }
+      },
+      "sound_effects": {
+        "0.0833": {
+          "effect": "pokemon.meowth.cry"
+        }
+      }
+    },
+    "animation.babymeowth.physical": {
+      "animation_length": 1.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              -4,
+              0,
+              0
+            ],
+            "0.55": [
+              8,
+              0,
+              0
+            ],
+            "0.75": [
+              -3,
+              0,
+              0
+            ],
+            "1.1": [
+              0,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.3": {
+              "post": [
+                0,
+                -0.4,
+                1.4
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.55": {
+              "post": [
+                0,
+                2.2,
+                -3.5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.75": {
+              "post": [
+                0,
+                0,
+                -4.5
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.1": {
+              "post": [
+                0,
+                0,
+                -1
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.5": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.3": [
+              1.05,
+              0.9,
+              1.05
+            ],
+            "0.55": [
+              0.96,
+              1.06,
+              0.96
+            ],
+            "0.75": [
+              1.04,
+              0.95,
+              1.04
+            ],
+            "1.0": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              6,
+              0,
+              0
+            ],
+            "0.55": [
+              -8,
+              0,
+              0
+            ],
+            "0.8": [
+              2,
+              0,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "arm_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.4": [
+              0,
+              0,
+              0
+            ],
+            "0.55": [
+              -40,
+              20,
+              0
+            ],
+            "0.7": [
+              10,
+              -25,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.4": [
+              0,
+              0,
+              0
+            ],
+            "0.55": [
+              0,
+              2,
+              -1
+            ],
+            "0.7": [
+              1.5,
+              0.2,
+              -1.5
+            ],
+            "0.95": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              12,
+              0,
+              -10
+            ],
+            "0.75": [
+              6,
+              0,
+              -6
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              12,
+              0,
+              10
+            ],
+            "0.75": [
+              6,
+              0,
+              6
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              25,
+              0,
+              0
+            ],
+            "0.6": [
+              -10,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "coins": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.55": [
+              0,
+              0.5,
+              2.5
+            ],
+            "0.8": [
+              0,
+              0,
+              -1.5
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "eyes": {
+          "position": [
+            0,
+            0,
+            -0.45
+          ]
+        }
+      }
+    },
+    "animation.babymeowth.special": {
+      "animation_length": 1.75,
+      "bones": {
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              -10,
+              0,
+              0
+            ],
+            "1.3": [
+              -10,
+              0,
+              0
+            ],
+            "1.75": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "coins": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0,
+              0
+            ],
+            "1.4": [
+              0,
+              -720,
+              0
+            ],
+            "1.75": [
+              0,
+              -720,
+              0
+            ]
+          },
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.3": {
+              "post": [
+                0,
+                2.5,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.2": {
+              "post": [
+                0,
+                3,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.75": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.3": [
+              1.25,
+              1.25,
+              1.25
+            ],
+            "1.3": [
+              1.25,
+              1.25,
+              1.25
+            ],
+            "1.75": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "coin_forehead": {
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.25": [
+              1.3,
+              1.3,
+              1.3
+            ],
+            "0.4": [
+              1,
+              1,
+              1
+            ],
+            "1.1": [
+              1,
+              1,
+              1
+            ],
+            "1.25": [
+              1.3,
+              1.3,
+              1.3
+            ],
+            "1.45": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "coin_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.6": [
+              0,
+              -1080,
+              0
+            ]
+          }
+        },
+        "coin_middle": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.6": [
+              0,
+              1080,
+              0
+            ]
+          }
+        },
+        "coin_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "1.6": [
+              0,
+              -1080,
+              0
+            ]
+          }
+        },
+        "eyes": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0,
+              -0.45
+            ],
+            "1.5": [
+              0,
+              0,
+              -0.45
+            ],
+            "1.55": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mouth": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              0,
+              0,
+              -0.45
+            ],
+            "0.6": [
+              0,
+              0,
+              -0.45
+            ],
+            "0.65": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.babymeowth.recoil": {
+      "animation_length": 0.6,
+      "bones": {
+        "body": {
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.1": {
+              "post": [
+                0,
+                0.8,
+                2.2
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.3": {
+              "post": [
+                0,
+                0,
+                1.2
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.6": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.1": [
+              0.94,
+              1.06,
+              0.94
+            ],
+            "0.3": [
+              1.04,
+              0.95,
+              1.04
+            ],
+            "0.5": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              -12,
+              0,
+              6
+            ],
+            "0.35": [
+              -2,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              20,
+              0,
+              -18
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "ear_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.1": [
+              20,
+              0,
+              18
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "coins": {
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.15": [
+              0,
+              1.5,
+              2
+            ],
+            "0.6": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.babymeowth.faint": {
+      "animation_length": 1.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              6
+            ],
+            "1.0": [
+              0,
+              0,
+              5
+            ]
+          },
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.25": [
+              0.97,
+              1.05,
+              0.97
+            ],
+            "0.6": [
+              1.08,
+              0.82,
+              1.08
+            ],
+            "0.8": [
+              1.05,
+              0.88,
+              1.05
+            ],
+            "1.0": [
+              1.07,
+              0.84,
+              1.07
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              -8,
+              0,
+              0
+            ],
+            "0.7": [
+              10,
+              0,
+              10
+            ],
+            "1.0": [
+              9,
+              0,
+              9
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.7": [
+              0,
+              -1.2,
+              0
+            ]
+          }
+        },
+        "ear_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.7": [
+              20,
+              0,
+              -30
+            ],
+            "0.9": [
+              16,
+              0,
+              -26
+            ]
+          }
+        },
+        "ear_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.7": [
+              20,
+              0,
+              30
+            ],
+            "0.9": [
+              16,
+              0,
+              26
+            ]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              -20,
+              -30,
+              0
+            ]
+          }
+        },
+        "tail2": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              60,
+              0,
+              0
+            ]
+          }
+        },
+        "tail3": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              40,
+              0,
+              0
+            ]
+          }
+        },
+        "coins": {
+          "position": {
+            "0.0": {
+              "post": [
+                0,
+                0,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.2": {
+              "post": [
+                0,
+                1,
+                0
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.7": {
+              "post": [
+                0,
+                -16.5,
+                -2
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "0.85": {
+              "post": [
+                0,
+                -15.5,
+                -2.3
+              ],
+              "lerp_mode": "catmullrom"
+            },
+            "1.0": {
+              "post": [
+                0,
+                -16.5,
+                -2.5
+              ],
+              "lerp_mode": "catmullrom"
+            }
+          },
+          "scale": {
+            "0.0": [
+              1,
+              1,
+              1
+            ],
+            "0.6": [
+              1,
+              1,
+              1
+            ],
+            "0.75": [
+              1.3,
+              1.3,
+              1.3
+            ]
+          }
+        },
+        "coin_left": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.7": [
+              -90,
+              -25,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.7": [
+              2.5,
+              2,
+              -1
+            ]
+          }
+        },
+        "coin_middle": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.75": [
+              -90,
+              40,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.75": [
+              0,
+              -0.5,
+              -3
+            ]
+          }
+        },
+        "coin_right": {
+          "rotation": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.8": [
+              -90,
+              -60,
+              0
+            ]
+          },
+          "position": {
+            "0.0": [
+              0,
+              0,
+              0
+            ],
+            "0.8": [
+              -2.5,
+              2,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

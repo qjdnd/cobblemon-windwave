@@ -1,0 +1,46 @@
+{
+  "species": "cobblemon:babylitwick",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:babylitwick",
+      "model": "cobblemon:babylitwick.geo",
+      "texture": "cobblemon:textures/pokemon/2003_babylitwick/babylitwick.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/2003_babylitwick/babylitwick_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/2003_babylitwick/babylitwick_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/2003_babylitwick/babylitwick_emissive_shiny.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/2003_babylitwick/babylitwick_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

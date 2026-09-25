@@ -1,0 +1,150 @@
+{
+  "portraitScale": 1.25,
+  "portraitTranslation": [
+    -0.14,
+    0.34,
+    0
+  ],
+  "profileScale": 0.56,
+  "profileTranslation": [
+    0,
+    0.78,
+    0
+  ],
+  "rootBone": "babyzubat",
+  "animations": {
+    "faint": "q.bedrock_primary('babyzubat', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('babyzubat', 'cry')",
+    "recoil": "q.bedrock_stateful('babyzubat', 'recoil')",
+    "physical": "q.bedrock_primary('babyzubat', 'physical', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('babyzubat', 'special', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "HOVER"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('body')",
+        "q.bedrock('babyzubat', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('body')",
+        "q.bedrock('babyzubat', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')",
+        "q.bedrock_quirk('babyzubat', 'look_quirk', 20, 45, 1)"
+      ]
+    },
+    "hover": {
+      "poseTypes": [
+        "HOVER",
+        "FLOAT"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.pitch_tilt('body')",
+        "q.look('body')",
+        "q.bedrock('babyzubat', 'air_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')",
+        "q.bedrock_quirk('babyzubat', 'look_quirk', 20, 45, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "animations": [
+        "q.bedrock('babyzubat', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')"
+      ]
+    },
+    "fly": {
+      "poseTypes": [
+        "FLY",
+        "SWIM"
+      ],
+      "animations": [
+        "q.pitch_tilt('body')",
+        "q.bedrock('babyzubat', 'air_fly')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": [
+        "q.bedrock('babyzubat', 'sleep')"
+      ]
+    },
+    "shoulder_left": {
+      "poseTypes": [
+        "SHOULDER_LEFT"
+      ],
+      "animations": [
+        "q.look('body')",
+        "q.bedrock('babyzubat', 'shoulder_left')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')"
+      ],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            -7.8,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "shoulder_right": {
+      "poseTypes": [
+        "SHOULDER_RIGHT"
+      ],
+      "animations": [
+        "q.look('body')",
+        "q.bedrock('babyzubat', 'shoulder_right')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babyzubat', 'blink')"
+      ],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            7.8,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

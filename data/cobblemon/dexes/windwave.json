@@ -1,0 +1,10 @@
+{
+  "type": "cobblemon:simple_pokedex_def",
+  "id": "cobblemon:windwave",
+  "sortOrder": 20,
+  "entries": [
+    "cobblemon:babymeowth",
+    "cobblemon:babyzubat",
+    "cobblemon:babylitwick"
+  ]
+}

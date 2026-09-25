@@ -1,0 +1,227 @@
+{
+  "implemented": true,
+  "nationalPokedexNumber": 2003,
+  "name": "Baby Litwick",
+  "primaryType": "ghost",
+  "secondaryType": "fire",
+  "maleRatio": 0.5,
+  "height": 2,
+  "weight": 12,
+  "pokedex": [
+    "cobblemon.species.babylitwick.desc"
+  ],
+  "labels": [
+    "custom",
+    "baby",
+    "windwave"
+  ],
+  "aspects": [],
+  "abilities": [
+    "flashfire",
+    "flamebody",
+    "h:infiltrator"
+  ],
+  "eggGroups": [
+    "undiscovered"
+  ],
+  "baseStats": {
+    "hp": 35,
+    "attack": 20,
+    "defence": 40,
+    "special_attack": 50,
+    "special_defence": 40,
+    "speed": 15
+  },
+  "evYield": {
+    "hp": 0,
+    "attack": 0,
+    "defence": 0,
+    "special_attack": 1,
+    "special_defence": 0,
+    "speed": 0
+  },
+  "baseExperienceYield": 40,
+  "experienceGroup": "medium_slow",
+  "catchRate": 190,
+  "eggCycles": 10,
+  "baseFriendship": 70,
+  "shoulderMountable": true,
+  "standingEyeHeight": 0.2,
+  "swimmingEyeHeight": 0.2,
+  "flyingEyeHeight": 0.2,
+  "baseScale": 0.28,
+  "hitbox": {
+    "width": 0.6,
+    "height": 0.55,
+    "fixed": false
+  },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": true,
+      "light": "12-15",
+      "times": [
+        "day"
+      ],
+      "drowsyChance": 0.0033,
+      "rouseChance": 0.0042
+    },
+    "moving": {
+      "swim": {
+        "avoidsWater": true,
+        "canSwimInLava": true
+      }
+    },
+    "combat": {
+      "willDefendOwner": true
+    },
+    "fireImmune": true,
+    "herd": {
+      "maxSize": 3,
+      "toleratedLeaders": [
+        {
+          "pokemon": "babylitwick",
+          "tier": 1
+        },
+        {
+          "pokemon": "litwick",
+          "tier": 2
+        },
+        {
+          "pokemon": "lampent",
+          "tier": 3
+        },
+        {
+          "pokemon": "chandelure",
+          "tier": 4
+        }
+      ]
+    }
+  },
+  "drops": {
+    "amount": 2,
+    "entries": [
+      {
+        "item": "minecraft:candle",
+        "quantityRange": "0-1"
+      },
+      {
+        "item": "cobblemon:rawst_berry",
+        "percentage": 2.5
+      }
+    ]
+  },
+  "moves": [
+    "1:astonish",
+    "1:smog",
+    "4:ember",
+    "8:minimize",
+    "12:confuseray",
+    "16:hex",
+    "20:flameburst",
+    "egg:acid",
+    "egg:acidarmor",
+    "egg:captivate",
+    "egg:clearsmog",
+    "egg:haze",
+    "egg:powersplit",
+    "tm:allyswitch",
+    "tm:burningjealousy",
+    "tm:calmmind",
+    "tm:confuseray",
+    "tm:curse",
+    "tm:darkpulse",
+    "tm:dreameater",
+    "tm:embargo",
+    "tm:endure",
+    "tm:energyball",
+    "tm:facade",
+    "tm:fireblast",
+    "tm:firespin",
+    "tm:flamecharge",
+    "tm:flamethrower",
+    "tm:flareblitz",
+    "tm:flash",
+    "tm:haze",
+    "tm:heatwave",
+    "tm:hex",
+    "tm:imprison",
+    "tm:incinerate",
+    "tm:mysticalfire",
+    "tm:nightshade",
+    "tm:overheat",
+    "tm:painsplit",
+    "tm:payback",
+    "tm:poltergeist",
+    "tm:protect",
+    "tm:psychic",
+    "tm:psychup",
+    "tm:rest",
+    "tm:safeguard",
+    "tm:shadowball",
+    "tm:shockwave",
+    "tm:skittersmack",
+    "tm:sleeptalk",
+    "tm:solarbeam",
+    "tm:spite",
+    "tm:substitute",
+    "tm:sunnyday",
+    "tm:taunt",
+    "tm:telekinesis",
+    "tm:temperflare",
+    "tm:terablast",
+    "tm:thief",
+    "tm:trick",
+    "tm:trickroom",
+    "tm:willowisp",
+    "tutor:allyswitch",
+    "tutor:burningjealousy",
+    "tutor:calmmind",
+    "tutor:darkpulse",
+    "tutor:energyball",
+    "tutor:flamethrower",
+    "tutor:heatwave",
+    "tutor:mysticalfire",
+    "tutor:painsplit",
+    "tutor:poltergeist",
+    "tutor:psychic",
+    "tutor:rest",
+    "tutor:shadowball",
+    "tutor:shockwave",
+    "tutor:skittersmack",
+    "tutor:sleeptalk",
+    "tutor:spite",
+    "tutor:telekinesis",
+    "tutor:trick",
+    "legacy:attract",
+    "legacy:confide",
+    "legacy:doubleteam",
+    "legacy:frustration",
+    "legacy:hiddenpower",
+    "legacy:return",
+    "legacy:round",
+    "legacy:secretpower",
+    "legacy:snore",
+    "legacy:swagger",
+    "legacy:toxic"
+  ],
+  "evolutions": [
+    {
+      "id": "babylitwick_litwick",
+      "variant": "level_up",
+      "result": "litwick",
+      "consumeHeldItem": false,
+      "learnableMoves": [],
+      "requirements": [
+        {
+          "variant": "friendship",
+          "amount": 160
+        }
+      ]
+    }
+  ],
+  "lightingData": {
+    "lightLevel": 8,
+    "liquidGlowMode": "LAND"
+  }
+}

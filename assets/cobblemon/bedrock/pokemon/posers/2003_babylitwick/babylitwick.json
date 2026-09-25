@@ -1,0 +1,124 @@
+{
+  "portraitScale": 1.05,
+  "portraitTranslation": [
+    -0.16,
+    -0.02,
+    0
+  ],
+  "profileScale": 0.5,
+  "profileTranslation": [
+    0,
+    0.92,
+    0
+  ],
+  "rootBone": "babylitwick",
+  "animations": {
+    "faint": "q.bedrock_primary('babylitwick', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('babylitwick', 'cry')",
+    "recoil": "q.bedrock_stateful('babylitwick', 'recoil')",
+    "physical": "q.bedrock_primary('babylitwick', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('babylitwick', 'special', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('body', 1, 1, 8, -8, 20, -20)",
+        "q.bedrock('babylitwick', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babylitwick', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT",
+        "HOVER",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('body', 1, 1, 8, -8, 20, -20)",
+        "q.bedrock('babylitwick', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babylitwick', 'blink')"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM",
+        "FLY"
+      ],
+      "animations": [
+        "q.look('body', 1, 1, 8, -8, 20, -20)",
+        "q.bedrock('babylitwick', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babylitwick', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": [
+        "q.bedrock('babylitwick', 'sleep')"
+      ]
+    },
+    "shoulder_left": {
+      "poseTypes": [
+        "SHOULDER_LEFT"
+      ],
+      "animations": [
+        "q.look('body', 1, 1, 8, -8, 20, -20)",
+        "q.bedrock('babylitwick', 'shoulder_left')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babylitwick', 'blink')"
+      ],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            -10,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "shoulder_right": {
+      "poseTypes": [
+        "SHOULDER_RIGHT"
+      ],
+      "animations": [
+        "q.look('body', 1, 1, 8, -8, 20, -20)",
+        "q.bedrock('babylitwick', 'shoulder_right')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babylitwick', 'blink')"
+      ],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            10,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}
