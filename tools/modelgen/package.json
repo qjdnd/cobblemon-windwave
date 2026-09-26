@@ -1,7 +1,7 @@
 {
-  "name": "psyduckline",
+  "name": "modelgen",
   "private": true,
-  "description": "Generator for the Wind Wave Psyduck line (Baby Psyduck, Swirlduck): Blockbench models, textures (base, shiny, alpha, glow), animations and Cobblemon poser/resolver",
+  "description": "Generator for the Wind Wave Pokemon models: Blockbench projects, textures (base, shiny, alpha, glow), animations and Cobblemon poser/resolver",
   "scripts": {
     "build": "node build.js",
     "export": "node build.js --repo ../..",

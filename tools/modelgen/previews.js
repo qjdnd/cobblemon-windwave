@@ -29,7 +29,7 @@ const out = (f) => path.join(__dirname, 'out', f);
     await render(bb, out(`${id}_prev_views.png`), { frames: views, cols: 6, tile: 240, ground: false, bg, emissive: em.slice(0, 1) });
     await render(bb, out(`${id}_prev_views_shiny.png`), { frames: views, cols: 6, tile: 240, texture: 1, ground: false, bg, emissive: em.slice(1, 2) });
     await render(bb, out(`${id}_prev_expr.png`), {
-      frames: V.faces.map(([, anim, time]) => ({ yaw: 10, pitch: 4, anim, time })),
+      frames: V.faces.map(([, anim, time]) => ({ yaw: V.face.yaw ?? 10, pitch: 4, anim, time })),
       cols: V.faces.length, tile: 240, ground: false, bg, center: V.face.center, radius: V.face.radius, emissive: em.slice(0, 1),
     });
     // animation grid frames

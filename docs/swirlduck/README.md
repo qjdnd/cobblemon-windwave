@@ -74,7 +74,7 @@ assets/cobblemon/bedrock/pokemon/animations/swirlduck/swirlduck.animation.json
 assets/cobblemon/bedrock/pokemon/posers/swirlduck/swirlduck.json
 assets/cobblemon/bedrock/pokemon/resolvers/swirlduck/0_swirlduck_base.json
 assets/cobblemon/textures/pokemon/swirlduck/swirlduck.png, _shiny, _emissive, _emissive_shiny, _alpha
-tools/psyduckline/pokemon/swirlduck/                               ← model.js(형태·색), anims.js(애니메이션), cobblemon.js(포저·리졸버)
+tools/modelgen/pokemon/swirlduck/                                  ← model.js(형태·색), anims.js(애니메이션), cobblemon.js(포저·리졸버)
 ```
 
 ## 게임에 넣기 (Cobblemon 1.8.1 / Minecraft 1.21.1)
@@ -88,7 +88,7 @@ tools/psyduckline/pokemon/swirlduck/                               ← model.js(
 
 ## 이름 바꾸기
 
-`tools/psyduckline/pokemon/swirlduck/` 의 `model.js` 와 `cobblemon.js` 에 있는 `ID`(와 `FOLDER`) 값을 원하는 id로 바꾸고, `pokemon/swirlduck` 폴더 이름도 같은 id로 바꾼 뒤 `npm run export` 를 실행하면 됩니다. 파일 이름, 본 이름, 애니메이션 이름(`animation.<id>.*`), 리졸버·포저가 전부 새 id로 다시 만들어집니다. 그다음 `assets/` 와 `blockbench/` 에 남은 예전 `swirlduck` 파일을 지우세요.
+`tools/modelgen/pokemon/swirlduck/` 의 `model.js` 와 `cobblemon.js` 에 있는 `ID`(와 `FOLDER`) 값을 원하는 id로 바꾸고, `pokemon/swirlduck` 폴더 이름도 같은 id로 바꾼 뒤 `npm run export` 를 실행하면 됩니다. 파일 이름, 본 이름, 애니메이션 이름(`animation.<id>.*`), 리졸버·포저가 전부 새 id로 다시 만들어집니다. 그다음 `assets/` 와 `blockbench/` 에 남은 예전 `swirlduck` 파일을 지우세요.
 
 ## Blockbench에서 수정하기
 

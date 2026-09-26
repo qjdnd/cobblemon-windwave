@@ -62,7 +62,7 @@ assets/cobblemon/bedrock/pokemon/posers/babypsyduck/babypsyduck.json
 assets/cobblemon/bedrock/pokemon/resolvers/babypsyduck/0_babypsyduck_base.json
 assets/cobblemon/textures/pokemon/babypsyduck/babypsyduck.png, babypsyduck_shiny.png, babypsyduck_alpha.png
 pack.mcmeta                                                        ← 리소스팩 (Minecraft 1.21.1, pack_format 34)
-tools/psyduckline/                                                 ← 고라파덕 계열(아기고라파덕, 스월덕)을 다시 생성하는 도구
+tools/modelgen/                                                    ← 모델·텍스처·애니메이션을 다시 생성하는 도구 (모든 포켓몬 공용)
 ```
 
 ## 게임에 넣기 (Cobblemon 1.8.1 / Minecraft 1.21.1)
@@ -95,14 +95,14 @@ tools/psyduckline/                                                 ← 고라파
 - 실제 마인크래프트 클라이언트에서는 테스트하지 못했습니다. 미리보기는 Blockbench와 같은 방식으로 그리는 자체 3D 뷰어로 렌더링한 것입니다.
 - 종족 데이터가 없어서 게임 속 실제 크기, 히트박스, 어깨 위치는 종족을 추가한 뒤 확인이 필요합니다.
 
-## 재생성 도구 (`tools/psyduckline`)
+## 재생성 도구 (`tools/modelgen`)
 
-진화형 [스월덕](../swirlduck/README.md)과 같은 도구를 씁니다.
+진화형 [스월덕](../swirlduck/README.md), [아기롱스톤](../babyonix/README.md)과 같은 도구를 씁니다.
 
 ```bash
-cd tools/psyduckline
+cd tools/modelgen
 npm install                     # three, pngjs (+ 미리보기용 playwright)
-npm run export                  # 두 포켓몬 빌드 → blockbench/, assets/ 다시 쓰기 (node build.js babypsyduck --repo ../.. 로 하나만)
+npm run export                  # 모든 포켓몬 빌드 → blockbench/, assets/ 다시 쓰기 (node build.js babypsyduck --repo ../.. 로 하나만)
 npm run verify                  # 내보낸 geo/animation 과 .bbmodel 픽셀 비교
 npm run check                   # 애니메이션별 가장 낮은 점 (바닥에 박힘/뜸 확인)
 npm run previews                # docs/ 이미지·GIF 다시 만들기 (python3 + Pillow 필요)

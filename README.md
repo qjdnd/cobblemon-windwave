@@ -19,3 +19,13 @@ Cobblemon 1.8.1 Wind Wave Project
 
 - Blockbench 원본: `blockbench/swirlduck.bbmodel`
 - 자세한 설명, 애니메이션 미리보기, 게임에 넣는 방법, 이름 바꾸는 방법: [docs/swirlduck/README.md](docs/swirlduck/README.md)
+
+## 아기롱스톤 `babyonix` (모델링)
+
+롱스톤의 아기 버전입니다. 공식 롱스톤 텍스처의 바위 무늬를 그대로 옮겨 칠한 기본·이로치(올리브색)·알파 텍스처와 애니메이션 12종, Cobblemon 포저·리졸버가 들어 있습니다.
+
+![babyonix](docs/babyonix/variants.png)
+
+- Blockbench 원본: `blockbench/babyonix.bbmodel`
+- 자세한 설명, 텍스처를 옮긴 방법, 애니메이션 미리보기, 게임에 넣는 방법: [docs/babyonix/README.md](docs/babyonix/README.md)
+
