@@ -229,6 +229,17 @@ class Model {
     const cubeByName = Object.fromEntries(this.cubes.map((c) => [c.name, c]));
     // sample the (pre-decal) colour already painted on another cube's face at the same spot
     const storePost = {};
+    // local-space store (pre-decal colours): model-space position of the texel on its face (before any
+    // bone rotation), so a plane can copy the texel it covers even when both sit on rotated bones
+    const storeLocal = {};
+    const sampleLocal = (cubeName, face, lp) => {
+      const c = cubeByName[cubeName];
+      const ax = planeOf[face];
+      const q = lp.slice();
+      q[ax] = (face === 'north' || face === 'west' || face === 'down') ? c.from[ax] : c.to[ax];
+      const r = storeLocal[cubeName + ':' + face] && storeLocal[cubeName + ':' + face][keyOf(q)];
+      return r ? r.slice() : null;
+    };
     const sample = (cubeName, face, p, post = false) => {
       const c = cubeByName[cubeName];
       const ax = planeOf[face];
@@ -262,10 +273,10 @@ class Model {
               col: Math.floor(s * fw), row: Math.floor(t * fh), W: fw, H: fh, s, t,
               // normalised position inside the cube (0..1 per axis, cube-local)
               q: [0, 1, 2].map((i) => (c.to[i] === c.from[i] ? 0.5 : (lp[i] - c.from[i]) / (c.to[i] - c.from[i]))),
-              sample,
+              sample, sampleLocal,
             };
             let col = fn(ctx);
-            if (col) { const sk = c.name + ':' + face; (store[sk] = store[sk] || {})[keyOf(p)] = col.slice(); }
+            if (col) { const sk = c.name + ':' + face; (store[sk] = store[sk] || {})[keyOf(p)] = col.slice(); (storeLocal[sk] = storeLocal[sk] || {})[keyOf(lp)] = col.slice(); }
             if (layer === 'color') col = this.applyDecals(ctx, col);
             if (col) { const sk = c.name + ':' + face; (storePost[sk] = storePost[sk] || {})[keyOf(p)] = col.slice(); }
             if (!col) continue;

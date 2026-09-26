@@ -29,3 +29,12 @@ Cobblemon 1.8.1 Wind Wave Project
 - Blockbench 원본: `blockbench/babyonix.bbmodel`
 - 자세한 설명, 텍스처를 옮긴 방법, 애니메이션 미리보기, 게임에 넣는 방법: [docs/babyonix/README.md](docs/babyonix/README.md)
 
+
+## 케르베가 `cerbedoom` (가칭, 헬가의 새로운 진화 · 모델링)
+
+헬가의 새 진화형입니다. 원화 없이 케르베로스·가름·영국 민담의 검은 개와 헬가 도감 설정을 직접 조사해서 디자인한 세 머리의 지옥견입니다. 공식 헬가 텍스처의 픽셀을 그대로 옮겨 칠한 기본·이로치·알파 텍스처와 눈·불꽃 발광 레이어, 애니메이션 12종, Cobblemon 포저·리졸버가 들어 있습니다.
+
+![cerbedoom](docs/cerbedoom/variants.png)
+
+- Blockbench 원본: `blockbench/cerbedoom.bbmodel`
+- 조사한 컨셉 자료와 출처, 디자인, 텍스처를 옮긴 방법, 애니메이션 미리보기, 게임에 넣는 방법: [docs/cerbedoom/README.md](docs/cerbedoom/README.md)

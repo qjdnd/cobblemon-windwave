@@ -1,0 +1,46 @@
+{
+  "species": "cobblemon:cerbedoom",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:cerbedoom",
+      "model": "cobblemon:cerbedoom.geo",
+      "texture": "cobblemon:textures/pokemon/cerbedoom/cerbedoom.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/cerbedoom/cerbedoom_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/cerbedoom/cerbedoom_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/cerbedoom/cerbedoom_emissive_shiny.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/cerbedoom/cerbedoom_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

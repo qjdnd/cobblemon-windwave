@@ -97,7 +97,7 @@ tools/modelgen/                                                    ← 모델·�
 
 ## 재생성 도구 (`tools/modelgen`)
 
-진화형 [스월덕](../swirlduck/README.md), [아기롱스톤](../babyonix/README.md)과 같은 도구를 씁니다.
+진화형 [스월덕](../swirlduck/README.md), [아기롱스톤](../babyonix/README.md), [케르베가](../cerbedoom/README.md)와 같은 도구를 씁니다.
 
 ```bash
 cd tools/modelgen
