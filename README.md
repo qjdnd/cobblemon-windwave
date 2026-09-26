@@ -10,3 +10,12 @@ Cobblemon 1.8.1 Wind Wave Project
 - Blockbench 원본: `blockbench/babypsyduck.bbmodel`
 - 게임 파일: `assets/cobblemon/...` (리소스팩: `pack.mcmeta` + `assets/` 를 zip으로 묶어 넣기)
 - 자세한 설명, 애니메이션 미리보기, 게임에 넣는 방법: [docs/babypsyduck/README.md](docs/babypsyduck/README.md)
+
+## 스월덕 `swirlduck` (가칭, 고라파덕의 또 다른 진화 · 모델링)
+
+원화에서 골덕 옆에 있는 진화형입니다. 가시 달린 흰 투구와 파란 소용돌이, 빛나는 금색 보석, 깃털 망토가 특징입니다. 고라파덕 텍스처 색으로 칠한 기본·이로치·알파 텍스처와 보석 발광 레이어, 애니메이션 14종, Cobblemon 포저·리졸버가 들어 있습니다.
+
+![swirlduck](docs/swirlduck/variants.png)
+
+- Blockbench 원본: `blockbench/swirlduck.bbmodel`
+- 자세한 설명, 애니메이션 미리보기, 게임에 넣는 방법, 이름 바꾸는 방법: [docs/swirlduck/README.md](docs/swirlduck/README.md)

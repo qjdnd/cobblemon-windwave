@@ -1,10 +1,10 @@
 {
-  "name": "babypsyduck",
+  "name": "psyduckline",
   "private": true,
-  "description": "Generator for Baby Psyduck: Blockbench model, textures (base, shiny, alpha), animations and Cobblemon poser/resolver",
+  "description": "Generator for the Wind Wave Psyduck line (Baby Psyduck, Swirlduck): Blockbench models, textures (base, shiny, alpha, glow), animations and Cobblemon poser/resolver",
   "scripts": {
     "build": "node build.js",
-    "export": "node build.js ../..",
+    "export": "node build.js --repo ../..",
     "verify": "node roundtrip.js",
     "check": "node groundcheck.js",
     "previews": "node previews.js && python3 previews.py"

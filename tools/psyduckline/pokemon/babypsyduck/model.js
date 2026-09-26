@@ -7,7 +7,7 @@
 // the 5-step body and bill ramps, mouth, eye and hair colours, and the shiny
 // ramps from psyduck_shiny.png. The white egg-shell head is new.
 'use strict';
-const L = require('./lib');
+const L = require('../../lib');
 const { Model, hex, makeRamp, pick, clamp, smooth, ellipsoidLight, norm3 } = L;
 
 const ID = 'babypsyduck';

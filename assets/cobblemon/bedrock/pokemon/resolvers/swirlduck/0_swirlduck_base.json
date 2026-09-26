@@ -1,0 +1,46 @@
+{
+  "species": "cobblemon:swirlduck",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:swirlduck",
+      "model": "cobblemon:swirlduck.geo",
+      "texture": "cobblemon:textures/pokemon/swirlduck/swirlduck.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/swirlduck/swirlduck_emissive.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/swirlduck/swirlduck_shiny.png",
+      "layers": [
+        {
+          "name": "emissive",
+          "texture": "cobblemon:textures/pokemon/swirlduck/swirlduck_emissive_shiny.png",
+          "emissive": true,
+          "translucent": true
+        }
+      ]
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/swirlduck/swirlduck_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}
