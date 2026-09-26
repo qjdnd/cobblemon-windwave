@@ -1,0 +1,145 @@
+{
+  "portraitScale": 1.23,
+  "portraitTranslation": [
+    0,
+    0.59,
+    0
+  ],
+  "profileScale": 0.7,
+  "profileTranslation": [
+    0,
+    0.77,
+    0
+  ],
+  "rootBone": "babypsyduck",
+  "animations": {
+    "faint": "q.bedrock_primary('babypsyduck', 'faint', q.curve('one'))",
+    "cry": "q.bedrock_stateful('babypsyduck', 'cry')",
+    "recoil": "q.bedrock_stateful('babypsyduck', 'recoil')",
+    "physical": "q.bedrock_primary('babypsyduck', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('babypsyduck', 'special', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')",
+        "q.bedrock_quirk('babypsyduck', 'headache', 20, 50, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')"
+      ]
+    },
+    "float": {
+      "poseTypes": [
+        "FLOAT"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'water_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')"
+      ]
+    },
+    "swim": {
+      "poseTypes": [
+        "SWIM"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'water_swim')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": [
+        "q.bedrock('babypsyduck', 'sleep')"
+      ]
+    },
+    "shoulder_left": {
+      "poseTypes": [
+        "SHOULDER_LEFT"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')"
+      ],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            -8.8,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "shoulder_right": {
+      "poseTypes": [
+        "SHOULDER_RIGHT"
+      ],
+      "animations": [
+        "q.look('head', 1, 1, 10, -10, 25, -25)",
+        "q.bedrock('babypsyduck', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('babypsyduck', 'blink')"
+      ],
+      "transformedParts": [
+        {
+          "part": "body",
+          "position": [
+            8.8,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}
