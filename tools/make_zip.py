@@ -1,9 +1,10 @@
 """Zips pack/ into dist/.
 
-Produces three files:
+Produces four files:
   * ..._resourcepack.zip  (assets only, for .minecraft/resourcepacks/)
   * ..._datapack.zip      (data only, for saves/<world>/datapacks/)
   * ...gulpin-swalot.zip  (combined, works in both places)
+  * cobblemon-windwave-models.zip (model assets of every Pokémon, incl. standalone ones)
 """
 import json
 import os
@@ -59,5 +60,22 @@ def main():
            [("pack.mcmeta", _read(os.path.join(PACK, "pack.mcmeta"))), icon] + assets + data)
 
 
+def models_zip():
+    """All model assets (geo, animations, posers, resolvers, normal/shiny/alpha textures)
+    for every Pokémon, including standalone ones that are not in the pack yet."""
+    roots = [PACK] + sorted(os.path.join(ROOT, "standalone", d) for d in os.listdir(os.path.join(ROOT, "standalone")))
+    entries = []
+    for r in roots:
+        base = os.path.join(r, "assets")
+        for b, _, names in os.walk(base):
+            for n in names:
+                full = os.path.join(b, n)
+                entries.append((os.path.relpath(full, r).replace(os.sep, "/"), _read(full)))
+    entries.sort()
+    _write(os.path.join(DIST, "cobblemon-windwave-models.zip"), entries)
+
+
+
 if __name__ == "__main__":
     main()
+    models_zip()

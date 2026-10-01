@@ -88,6 +88,7 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 | `cobblemon-windwave-gulpin-swalot_resourcepack.zip` | `.minecraft/resourcepacks/` → 게임 설정에서 리소스팩 활성화 |
 | `cobblemon-windwave-gulpin-swalot_datapack.zip` | `saves/<월드>/datapacks/` → `/reload` 또는 월드 다시 열기 |
 | `cobblemon-windwave-gulpin-swalot.zip` | 리소스팩+데이터팩 합본 (두 곳에 같은 파일을 넣어도 됨) |
+| `cobblemon-windwave-models.zip` | 지금까지 만든 모든 포켓몬(꼴깍몬·꿀꺽몬·망망이)의 모델/애니메이션/포저/리졸버/텍스처(일반·이로치·알파) 파일 모음 (팩 아님) |
 
 서버라면 데이터팩은 서버 월드의 `datapacks/` 폴더에, 리소스팩은 각 클라이언트에 넣습니다.
 두 팩 모두 있어야 합니다. 데이터팩만 있으면 모델 없이 스폰되고, 리소스팩만 있으면 스폰되지 않습니다.
