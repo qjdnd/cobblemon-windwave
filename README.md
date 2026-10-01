@@ -103,6 +103,20 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 /pokespawn swalot shiny alpha=true
 ```
 
+## Blockbench 모델링 파일 (.bbmodel)
+
+`bbmodel/` 폴더에 포켓몬마다 Blockbench 프로젝트 파일이 있습니다 (Blockbench 4.10 이상 / 5.x에서 열기).
+
+| 파일 | 들어있는 것 |
+|---|---|
+| `bbmodel/gulpin.bbmodel` | 모델(본·큐브·로케이터), 텍스처 3장(일반·이로치·알파), 애니메이션 14개 |
+| `bbmodel/swalot.bbmodel` | 모델, 텍스처 3장(일반·이로치·알파), 애니메이션 13개 |
+| `bbmodel/greavard.bbmodel` | 모델, 텍스처 7장(일반·이로치·알파·불꽃 4프레임), 애니메이션 14개 |
+
+- 텍스처는 프로젝트 안에 들어 있어서 따로 연결할 필요가 없습니다. 이로치/알파는 텍스처 목록에서 골라 적용해 보면 됩니다.
+- 수정 후 `File > Export > Export Bedrock Geometry` / `Animation > Export Animations`로 내보내면 Cobblemon에서 그대로 쓸 수 있습니다.
+- 다시 만들기: `python3 tools/make_bbmodel.py`
+
 ## 폴더 구조
 
 ```
@@ -116,6 +130,7 @@ pack/                                   리소스팩 + 데이터팩 원본 (zip 
   data/cobblemon/species_additions/, spawn_pool_world/
 tools/                                  모델/텍스처/애니메이션 생성 스크립트 (Python)
 standalone/greavard/                    망망이 (팩 미포함, assets/ + data/)
+bbmodel/                                Blockbench 프로젝트 파일 (.bbmodel)
 previews/                               미리보기 이미지와 애니메이션 GIF
 dist/                                   배포용 zip
 ```
