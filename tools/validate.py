@@ -11,6 +11,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PACK = os.path.join(ROOT, "pack")
 A = os.path.join(PACK, "assets", "cobblemon")
+ROOTS = [PACK] + sorted(glob.glob(os.path.join(ROOT, "standalone", "*")))
 
 
 def load(p):
@@ -19,8 +20,20 @@ def load(p):
 
 
 def main():
+    total = 0
+    for r in ROOTS:
+        total += check(r)
+    print("all OK (%d roots)" % len(ROOTS))
+
+
+def check(pack):
+    global PACK, A
+    PACK = pack
+    A = os.path.join(PACK, "assets", "cobblemon")
     errors = []
-    files = glob.glob(os.path.join(PACK, "**", "*.json"), recursive=True) + [os.path.join(PACK, "pack.mcmeta")]
+    files = glob.glob(os.path.join(PACK, "**", "*.json"), recursive=True)
+    if os.path.exists(os.path.join(PACK, "pack.mcmeta")):
+        files.append(os.path.join(PACK, "pack.mcmeta"))
     for p in files:
         try:
             load(p)
@@ -61,7 +74,10 @@ def main():
                 if bone not in bones:
                     errors.append("%s: animation %s targets unknown bone %s" % (group, name, bone))
         for var in r["variations"]:
-            texs = [var.get("texture")] + [l["texture"] for l in var.get("layers", [])]
+            texs = [var.get("texture")]
+            for l in var.get("layers", []):
+                t = l["texture"]
+                texs += t["frames"] if isinstance(t, dict) else [t]
             for t in texs:
                 if not t:
                     continue
@@ -105,7 +121,8 @@ def main():
     if errors:
         print("\n".join(errors))
         sys.exit(1)
-    print("OK - %d json files, %d models, %d animation groups" % (len(files), len(models), len(anims)))
+    print("OK %s - %d json files, %d models, %d animation groups" % (os.path.relpath(PACK, ROOT), len(files), len(models), len(anims)))
+    return len(files)
 
 
 if __name__ == "__main__":

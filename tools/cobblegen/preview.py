@@ -33,11 +33,14 @@ def _bg(size, top=(122, 168, 214), bottom=(176, 208, 232), flat=False):
 
 class Scene:
     def __init__(self, model, texture, emissive=None, size=(420, 420), yaw=-32, pitch=16,
-                 fit_pose=None, scale=None, ground_frac=0.78):
+                 fit_pose=None, scale=None, ground_frac=0.78, layers=None, shadow=(9, 8), clip_ground=True):
         self.model = model
         self.parts = rig.build_rig(model)
         self.texture = texture
         self.emissive = emissive
+        self.layers = layers or []
+        self.shadow = shadow
+        self.clip_ground = clip_ground
         self.size = size
         self.cam = raster.Camera(yaw=yaw, pitch=pitch, size=size)
         mats = rig.pose_matrices(self.parts, fit_pose)
@@ -50,10 +53,12 @@ class Scene:
         g = raster.project(np.array([[0.0, 0.0, 0.0]]), self.cam)[0]
         self.cam.center = self.cam.center + np.array([0, -(size[1] * ground_frac - g[1]) / self.cam.scale])
 
-    def frame(self, pose=None, glow=False, bg=True, label=None, flat=False):
+    def frame(self, pose=None, glow=False, bg=True, label=None, flat=False, t=0.0):
         mats = rig.pose_matrices(self.parts, pose)
         mesh = rig.build_mesh(self.parts, mats)
-        img = raster.render(mesh, self.texture, self.cam, emissive=self.emissive)
+        layers = [(l(t) if callable(l) else l, tr) for l, tr in self.layers]
+        img = raster.render(mesh, self.texture, self.cam, emissive=self.emissive, layers=layers,
+                            clip_ground=self.clip_ground)
         if glow:
             locs = rig.locator_positions(self.parts, mats)
             eyes = [v for k, v in locs.items() if "eye" in k]
@@ -62,7 +67,7 @@ class Scene:
                 img = raster.add_glow(img, [(p[0], p[1]) for p in pr], radius=self.cam.scale * 1.6)
         if bg:
             base = _bg(self.size, flat=flat)
-            sh = raster.ground_shadow(self.size, self.cam, (0, 0, 0), (9, 8))
+            sh = raster.ground_shadow(self.size, self.cam, (0, 0, 0), self.shadow)
             dark = Image.new("RGBA", self.size, (40, 60, 30, 255))
             base = Image.composite(dark, base, sh)
             base.alpha_composite(img)
@@ -100,5 +105,5 @@ def animate(scene, anim_dicts, seconds, fps=20, glow=False, label=None, base_pos
                 pose[k] = dict(v)
         for ad in anim_dicts:
             animlib.eval_anim(ad, t, pose)
-        frames.append(scene.frame(pose, glow=glow, label=label, flat=flat))
+        frames.append(scene.frame(pose, glow=glow, label=label, flat=flat, t=t))
     return frames

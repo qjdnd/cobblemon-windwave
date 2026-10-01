@@ -45,7 +45,7 @@ class Camera:
 
 
 def render(mesh, texture, cam, emissive=None, light_model_rot=None, ss=2, bg=(0, 0, 0, 0),
-           world_rot=None, ground_shadow=True, extra_world=None):
+           world_rot=None, ground_shadow=True, extra_world=None, layers=None, clip_ground=False):
     """mesh: output of rig.build_mesh (J space). texture: RGBA uint8 array (H,W,4)."""
     W, H = cam.size
     W2, H2 = W * ss, H * ss
@@ -99,6 +99,9 @@ def render(mesh, texture, cam, emissive=None, light_model_rot=None, ss=2, bg=(0,
             vi = np.clip(np.floor(vv).astype(int), 0, th - 1)
             texel = tex[vi, ui]
             ok = inside & (texel[..., 3] > 0.1)
+            if clip_ground:
+                wy = quads[i, list(tri), 1]
+                ok &= (w0 * wy[0] + w1 * wy[1] + w2 * wy[2]) > -0.02
             dsub = depth[y0:y1 + 1, x0:x1 + 1]
             ok &= z > dsub + 1e-5
             if not ok.any():
@@ -112,6 +115,55 @@ def render(mesh, texture, cam, emissive=None, light_model_rot=None, ss=2, bg=(0,
             csub[ok, :3] = rgb[ok]
             csub[ok, 3] = 1.0
             dsub[ok] = z[ok]
+    # extra resolver layers: (texture, translucent) drawn unlit after the base pass
+    for ltex, translucent in (layers or []):
+        lt = ltex.astype(np.float32) / 255.0
+        lh, lw = lt.shape[:2]
+        for i in range(quads.shape[0]):
+            if nv[i, 2] <= 1e-6 and not translucent:
+                continue
+            for tri in ((0, 1, 2), (0, 2, 3)):
+                xs = sx[i, list(tri)]
+                ys = sy[i, list(tri)]
+                zs = sz[i, list(tri)]
+                us = uvs[i, list(tri), 0]
+                vs = uvs[i, list(tri), 1]
+                x0 = max(int(math.floor(xs.min())), 0)
+                x1 = min(int(math.ceil(xs.max())), W2 - 1)
+                y0 = max(int(math.floor(ys.min())), 0)
+                y1 = min(int(math.ceil(ys.max())), H2 - 1)
+                if x1 < x0 or y1 < y0:
+                    continue
+                area = (xs[1] - xs[0]) * (ys[2] - ys[0]) - (xs[2] - xs[0]) * (ys[1] - ys[0])
+                if abs(area) < 1e-9:
+                    continue
+                px, py = np.meshgrid(np.arange(x0, x1 + 1) + 0.5, np.arange(y0, y1 + 1) + 0.5)
+                w0 = ((xs[1] - px) * (ys[2] - py) - (xs[2] - px) * (ys[1] - py)) / area
+                w1 = ((xs[2] - px) * (ys[0] - py) - (xs[0] - px) * (ys[2] - py)) / area
+                w2 = 1 - w0 - w1
+                inside = (w0 >= -1e-6) & (w1 >= -1e-6) & (w2 >= -1e-6)
+                if not inside.any():
+                    continue
+                z = w0 * zs[0] + w1 * zs[1] + w2 * zs[2]
+                u = w0 * us[0] + w1 * us[1] + w2 * us[2]
+                vv = w0 * vs[0] + w1 * vs[1] + w2 * vs[2]
+                ui = np.clip(np.floor(u).astype(int), 0, lw - 1)
+                vi = np.clip(np.floor(vv).astype(int), 0, lh - 1)
+                tx = lt[vi, ui]
+                dsub = depth[y0:y1 + 1, x0:x1 + 1]
+                ok = inside & (tx[..., 3] > 0.02) & (z >= dsub - 1e-3)
+                if clip_ground:
+                    wy = quads[i, list(tri), 1]
+                    ok &= (w0 * wy[0] + w1 * wy[1] + w2 * wy[2]) > -0.02
+                if not ok.any():
+                    continue
+                csub = color[y0:y1 + 1, x0:x1 + 1]
+                a = tx[..., 3:4] if translucent else np.ones_like(tx[..., 3:4])
+                blended = csub[..., :3] * (1 - a) + tx[..., :3] * a
+                csub[ok, :3] = blended[ok]
+                csub[ok, 3] = np.maximum(csub[ok, 3], a[ok, 0])
+                if not translucent:
+                    dsub[ok] = z[ok]
     img = Image.fromarray((np.clip(color, 0, 1) * 255).astype(np.uint8), "RGBA")
     if ss > 1:
         img = img.resize((W, H), Image.LANCZOS)

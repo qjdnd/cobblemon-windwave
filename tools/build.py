@@ -24,7 +24,9 @@ PACK = os.path.join(ROOT, "pack")
 ASSETS = os.path.join(PACK, "assets", "cobblemon")
 PREVIEWS = os.path.join(ROOT, "previews")
 
-SPECIES = ["gulpin", "swalot"]
+SPECIES = ["gulpin", "swalot", "greavard"]
+# Species whose files go to a standalone folder instead of pack/ (not bundled into a pack yet).
+STANDALONE = {"greavard": os.path.join(ROOT, "standalone", "greavard")}
 
 
 def _write_json(path, data):
@@ -43,10 +45,13 @@ def build_species(name, previews=False):
     if bad:
         raise SystemExit("non-integer cube sizes: %r" % bad)
 
-    bed = os.path.join(ASSETS, "bedrock", "pokemon")
+    assets = ASSETS
+    if name in STANDALONE:
+        assets = os.path.join(STANDALONE[name], "assets", "cobblemon")
+    bed = os.path.join(assets, "bedrock", "pokemon")
     for sub in ("models", "animations", "posers", "resolvers"):
         os.makedirs(os.path.join(bed, sub, dex), exist_ok=True)
-    tex_dir = os.path.join(ASSETS, "textures", "pokemon", dex)
+    tex_dir = os.path.join(assets, "textures", "pokemon", dex)
     os.makedirs(tex_dir, exist_ok=True)
 
     model.write_geo(os.path.join(bed, "models", dex, name + ".geo.json"))
@@ -59,11 +64,18 @@ def build_species(name, previews=False):
         Image.fromarray(arr, "RGBA").save(os.path.join(tex_dir, fn), optimize=True)
     alpha = mod.paint_alpha(model)
     Image.fromarray(alpha, "RGBA").save(os.path.join(tex_dir, name + "_alpha.png"), optimize=True)
+    flames = mod.paint_flame_frames(model) if hasattr(mod, "paint_flame_frames") else []
+    for i, fr in enumerate(flames):
+        Image.fromarray(fr, "RGBA").save(os.path.join(tex_dir, "%s_flame_%d.png" % (name, i)), optimize=True)
+    textures["layers"] = [(lambda t, f=flames: f[int(t * 8) % len(f)], True)] if flames else []
 
     anims = amod.all_animations()
     animlib.write_animation_file(os.path.join(bed, "animations", dex, name + ".animation.json"), name, anims)
     _write_json(os.path.join(bed, "posers", dex, name + ".json"), amod.poser(False))
-    _write_json(os.path.join(bed, "posers", dex, name + "_female.json"), amod.poser(True))
+    if getattr(amod, "HAS_FEMALE", True):
+        _write_json(os.path.join(bed, "posers", dex, name + "_female.json"), amod.poser(True))
+    for rel, data in (mod.data_files() if hasattr(mod, "data_files") else {}).items():
+        _write_json(os.path.join(os.path.dirname(os.path.dirname(assets)), "data", "cobblemon", rel), data)
     _write_json(os.path.join(bed, "resolvers", dex, "0_%s_base.json" % name), amod.resolver())
     print("built", name, "-", sum(1 for _ in model.cubes()), "cubes,", len(anims), "animations")
 
@@ -75,20 +87,20 @@ def render_previews(name, mod, amod, model, textures, alpha, anims):
     out = os.path.join(PREVIEWS, name)
     os.makedirs(out, exist_ok=True)
     size = getattr(mod, "PREVIEW_SIZE", (420, 420))
+    layers = textures.get("layers", [])
+    shadow = getattr(mod, "PREVIEW_SHADOW", (9, 8))
+
+    def scene(tex, sz=size, emissive=None, **kw):
+        return preview.Scene(model, tex, emissive=emissive, size=sz, layers=layers, shadow=shadow, **kw)
+
     # turntable sheet
-    imgs = []
-    for yaw in (-35, 35, -100, 150):
-        sc = preview.Scene(model, textures["normal"], yaw=yaw, pitch=16, size=size)
-        imgs.append(sc.frame())
+    imgs = [scene(textures["normal"], yaw=yaw, pitch=16).frame() for yaw in (-35, 35, -100, 150)]
     preview.sheet(imgs, 4).save(os.path.join(out, "turntable.png"))
     # variants
-    v = []
-    v.append(preview.Scene(model, textures["normal"], yaw=-32, pitch=14, size=size).frame(label="normal"))
-    v.append(preview.Scene(model, textures["shiny"], yaw=-32, pitch=14, size=size).frame(label="shiny"))
-    sc = preview.Scene(model, textures["normal"], emissive=alpha, yaw=-20, pitch=10, size=size)
-    v.append(sc.frame(glow=True, label="alpha"))
-    sc = preview.Scene(model, textures["shiny"], emissive=alpha, yaw=-20, pitch=10, size=size)
-    v.append(sc.frame(glow=True, label="shiny alpha"))
+    v = [scene(textures["normal"], yaw=-32, pitch=14).frame(label="normal"),
+         scene(textures["shiny"], yaw=-32, pitch=14).frame(label="shiny"),
+         scene(textures["normal"], emissive=alpha, yaw=-20, pitch=6).frame(glow=True, label="alpha"),
+         scene(textures["shiny"], emissive=alpha, yaw=-20, pitch=6).frame(glow=True, label="shiny alpha")]
     preview.sheet(v, 4).save(os.path.join(out, "variants.png"))
     # textures (x4 nearest)
     for key, arr in (("normal", textures["normal"]), ("shiny", textures["shiny"]), ("alpha", alpha)):
@@ -100,7 +112,7 @@ def render_previews(name, mod, amod, model, textures, alpha, anims):
     ad = {a.name: a.to_dict() for a in anims}
     idle = ad.get("ground_idle")
     small = (240, 240)
-    sc = preview.Scene(model, textures["normal"], yaw=-35, pitch=14, size=small)
+    sc = scene(textures["normal"], sz=small, yaw=-35, pitch=14)
     order = getattr(amod, "PREVIEW_ORDER", list(ad))
     sheets = []
     for an in order:

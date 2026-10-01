@@ -51,6 +51,34 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 - 무리: 꼴깍몬 무리(가끔 꿀꺽몬 동행)
 - 알파 무리(boss): 알파 꿀꺽몬이 꼴깍몬/꿀꺽몬을 이끄는 무리, 알파 꼴깍몬 무리
 
+## 작업 중: 망망이 (Greavard, #971) — 팩에 아직 미포함
+
+`standalone/greavard/` 폴더에 리소스(assets)와 데이터(data) 파일이 따로 있고, `dist/` 팩 zip에는 아직 넣지 않았습니다.
+
+![greavard](previews/greavard/variants.png)
+
+| 항목 | 내용 |
+|---|---|
+| 일반 | 푸른 회색 털, 흰 털끝, 뼈 위 촛불(보라 겉불꽃 + 노란 속불꽃) |
+| 이로치 | 금색 털 (공식 HOME 렌더 색), 흰 털끝·뼈·불꽃은 그대로 |
+| 알파 | 평소엔 앞머리에 가려 안 보이는 눈이, 알파일 때만 앞머리 틈으로 붉게 빛남 |
+| 불꽃 | 4프레임 애니메이션 발광 텍스처(Cobblemon 애니메이션 레이어) + 흔들림 애니메이션 |
+
+애니메이션 (도감/SV 행동 참고):
+
+| 애니메이션 | 설명 |
+|---|---|
+| `ground_idle` | 혀를 내밀고 헥헥, 꼬리 흔들기, 불꽃 일렁임 |
+| `ground_walk` | 대각선 다리로 총총 걷기, 귀·꼬리·불꽃이 늦게 따라옴 |
+| `battle_idle` | 엎드려 장난치는 자세(플레이 바우)로 덤빌 준비 |
+| `sleep` | 땅속에 숨어 촛불만 내놓고 기다림 (도감 설정) |
+| `cry` | 땅에서 튀어나오며 유령 같은 울음 |
+| `physical` | 달려들어 콱 깨물기 (뼈를 부수는 턱) |
+| `special` / `spray` | 몸을 젖혔다가 불꽃이 크게 타오르며 휘둘림 |
+| `status` | 꼬리흔들기(Tail Whip) — 엉덩이를 돌려 꼬리를 흔듦 |
+| `recoil` / `faint` | 피격 / 납작 엎드리며 촛불이 꺼져감 |
+| quirk `wag`, `shake`, `sniff` | 꼬리 흔들기, 젖은 개처럼 털기, 땅 냄새 맡기 |
+
 ## 설치
 
 `dist/` 폴더에 리소스팩과 데이터팩이 따로 있습니다.
@@ -86,6 +114,7 @@ pack/                                   리소스팩 + 데이터팩 원본 (zip 
   assets/cobblemon/textures/pokemon/0316_gulpin/gulpin.png, gulpin_shiny.png, gulpin_alpha.png
   data/cobblemon/species_additions/, spawn_pool_world/
 tools/                                  모델/텍스처/애니메이션 생성 스크립트 (Python)
+standalone/greavard/                    망망이 (팩 미포함, assets/ + data/)
 previews/                               미리보기 이미지와 애니메이션 GIF
 dist/                                   배포용 zip
 ```
