@@ -1,0 +1,10 @@
+{
+  "target": "cobblemon:swalot",
+  "implemented": true,
+  "baseScale": 0.95,
+  "hitbox": {
+    "width": 1.55,
+    "height": 1.9,
+    "fixed": false
+  }
+}

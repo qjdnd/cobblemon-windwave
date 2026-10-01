@@ -1,0 +1,37 @@
+{
+  "species": "cobblemon:swalot",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:swalot",
+      "model": "cobblemon:swalot.geo",
+      "texture": "cobblemon:textures/pokemon/0317_swalot/swalot.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "female"
+      ],
+      "poser": "cobblemon:swalot_female"
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/0317_swalot/swalot_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/0317_swalot/swalot_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

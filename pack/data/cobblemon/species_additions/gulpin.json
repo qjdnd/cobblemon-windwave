@@ -1,0 +1,10 @@
+{
+  "target": "cobblemon:gulpin",
+  "implemented": true,
+  "baseScale": 0.75,
+  "hitbox": {
+    "width": 1.05,
+    "height": 0.9,
+    "fixed": false
+  }
+}

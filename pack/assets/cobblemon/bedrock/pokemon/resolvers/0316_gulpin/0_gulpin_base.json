@@ -1,0 +1,37 @@
+{
+  "species": "cobblemon:gulpin",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:gulpin",
+      "model": "cobblemon:gulpin.geo",
+      "texture": "cobblemon:textures/pokemon/0316_gulpin/gulpin.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "female"
+      ],
+      "poser": "cobblemon:gulpin_female"
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/0316_gulpin/gulpin_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/0316_gulpin/gulpin_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}
