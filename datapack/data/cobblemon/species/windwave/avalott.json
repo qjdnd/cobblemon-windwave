@@ -1,0 +1,229 @@
+{
+  "implemented": true,
+  "nationalPokedexNumber": 1082,
+  "name": "Avalott",
+  "primaryType": "steel",
+  "secondaryType": "ice",
+  "maleRatio": 0.5,
+  "height": 16,
+  "weight": 2600,
+  "pokedex": [
+    "cobblemon.species.avalott.desc"
+  ],
+  "labels": [
+    "custom",
+    "windwave",
+    "gen9"
+  ],
+  "aspects": [],
+  "abilities": [
+    "sharpness",
+    "icebody",
+    "h:sturdy"
+  ],
+  "eggGroups": [
+    "monster",
+    "mineral"
+  ],
+  "baseStats": {
+    "hp": 75,
+    "attack": 125,
+    "defence": 140,
+    "special_attack": 45,
+    "special_defence": 70,
+    "speed": 65
+  },
+  "evYield": {
+    "hp": 0,
+    "attack": 2,
+    "defence": 0,
+    "special_attack": 0,
+    "special_defence": 0,
+    "speed": 0
+  },
+  "baseExperienceYield": 180,
+  "experienceGroup": "medium_fast",
+  "catchRate": 55,
+  "eggCycles": 20,
+  "baseFriendship": 50,
+  "baseScale": 0.5,
+  "hitbox": {
+    "width": 3.2,
+    "height": 4.4,
+    "fixed": false
+  },
+  "drops": {
+    "amount": 3,
+    "entries": [
+      {
+        "item": "minecraft:iron_nugget",
+        "quantityRange": "1-4"
+      },
+      {
+        "item": "minecraft:packed_ice",
+        "quantityRange": "0-1"
+      },
+      {
+        "item": "cobblemon:metal_coat",
+        "percentage": 5.0
+      },
+      {
+        "item": "cobblemon:never_melt_ice",
+        "percentage": 5.0
+      },
+      {
+        "item": "cobblemon:babiri_berry",
+        "percentage": 2.5
+      }
+    ]
+  },
+  "moves": [
+    "1:frostsaw",
+    "1:harden",
+    "1:rapidspin",
+    "1:metalclaw",
+    "3:tackle",
+    "6:powdersnow",
+    "9:curse",
+    "12:icywind",
+    "15:protect",
+    "18:avalanche",
+    "21:icefang",
+    "24:irondefense",
+    "27:icespinner",
+    "30:recover",
+    "33:ironhead",
+    "36:crunch",
+    "41:iciclecrash",
+    "46:swordsdance",
+    "51:heavyslam",
+    "egg:auroraveil",
+    "egg:barrier",
+    "egg:mirrorcoat",
+    "egg:mist",
+    "egg:sharpen",
+    "tm:aerialace",
+    "tm:afteryou",
+    "tm:auroraveil",
+    "tm:avalanche",
+    "tm:blizzard",
+    "tm:bodypress",
+    "tm:bodyslam",
+    "tm:bulldoze",
+    "tm:bulletpunch",
+    "tm:chillingwater",
+    "tm:crunch",
+    "tm:curse",
+    "tm:doubleedge",
+    "tm:endure",
+    "tm:facade",
+    "tm:flash",
+    "tm:flashcannon",
+    "tm:frostbreath",
+    "tm:frostsaw",
+    "tm:gigaimpact",
+    "tm:gyroball",
+    "tm:hail",
+    "tm:heavyslam",
+    "tm:hyperbeam",
+    "tm:iceball",
+    "tm:icebeam",
+    "tm:icefang",
+    "tm:icespinner",
+    "tm:iciclespear",
+    "tm:icywind",
+    "tm:irondefense",
+    "tm:ironhead",
+    "tm:metalclaw",
+    "tm:protect",
+    "tm:raindance",
+    "tm:rest",
+    "tm:rockpolish",
+    "tm:rockslide",
+    "tm:rocksmash",
+    "tm:rocktomb",
+    "tm:safeguard",
+    "tm:sleeptalk",
+    "tm:smartstrike",
+    "tm:snowscape",
+    "tm:steelbeam",
+    "tm:stoneedge",
+    "tm:strength",
+    "tm:substitute",
+    "tm:swordsdance",
+    "tm:takedown",
+    "tm:terablast",
+    "tm:xscissor",
+    "tutor:afteryou",
+    "tutor:bulldoze",
+    "tutor:gigaimpact",
+    "tutor:hyperbeam",
+    "tutor:iceball",
+    "tutor:icebeam",
+    "tutor:icefang",
+    "tutor:icywind",
+    "tutor:irondefense",
+    "tutor:ironhead",
+    "tutor:rest",
+    "tutor:rockslide",
+    "tutor:rocksmash",
+    "tutor:sleeptalk",
+    "tutor:stoneedge",
+    "legacy:attract",
+    "legacy:confide",
+    "legacy:doubleteam",
+    "legacy:frustration",
+    "legacy:hiddenpower",
+    "legacy:return",
+    "legacy:round",
+    "legacy:secretpower",
+    "legacy:snore",
+    "legacy:swagger",
+    "legacy:toxic"
+  ],
+  "preEvolution": "bergmite",
+  "evolutions": [],
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "light": "0-4",
+      "drowsyChance": 0.0333,
+      "rouseChance": 0.0042
+    },
+    "moving": {
+      "walk": {
+        "walkSpeed": 0.24
+      },
+      "swim": {
+        "swimSpeed": 0.1,
+        "canWalkOnWater": true
+      }
+    },
+    "combat": {
+      "willDefendSelf": true,
+      "willDefendOwner": true,
+      "willFlee": false
+    },
+    "herd": {
+      "maxSize": 6,
+      "toleratedLeaders": [
+        {
+          "pokemon": "avalott alpha",
+          "tier": 1
+        },
+        {
+          "pokemon": "avalugg alpha",
+          "tier": 2
+        }
+      ]
+    }
+  },
+  "ai": [
+    {
+      "type": "apply_behaviours",
+      "behaviours": [
+        "cobblemon:fights_melee"
+      ]
+    }
+  ]
+}

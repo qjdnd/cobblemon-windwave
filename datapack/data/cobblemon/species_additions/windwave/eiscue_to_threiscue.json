@@ -1,0 +1,58 @@
+{
+  "target": "cobblemon:eiscue",
+  "evolutions": [
+    {
+      "id": "eiscue_threiscue_stone",
+      "variant": "item_interact",
+      "result": "threiscue",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "triplefreezebeam"
+      ],
+      "requirements": [],
+      "requiredContext": "cobblemon:ice_stone"
+    },
+    {
+      "id": "eiscue_threiscue_blizzard",
+      "variant": "level_up",
+      "result": "threiscue",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "triplefreezebeam"
+      ],
+      "requirements": [
+        {
+          "variant": "level",
+          "minLevel": 45
+        },
+        {
+          "variant": "weather",
+          "isRaining": true
+        },
+        {
+          "variant": "biome",
+          "biomeCondition": "#cobblemon:is_freezing"
+        }
+      ]
+    },
+    {
+      "id": "eiscue_threiscue_ice",
+      "variant": "level_up",
+      "result": "threiscue",
+      "consumeHeldItem": true,
+      "learnableMoves": [
+        "triplefreezebeam"
+      ],
+      "requirements": [
+        {
+          "variant": "level",
+          "minLevel": 40
+        },
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:never_melt_ice"
+        }
+      ]
+    }
+  ]
+}

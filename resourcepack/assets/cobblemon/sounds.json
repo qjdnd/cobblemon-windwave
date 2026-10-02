@@ -1,0 +1,47 @@
+{
+  "pokemon.eeveeon.cry": {
+    "sounds": [
+      {
+        "name": "cobblemon:pokemon/eevee/eevee_cry",
+        "volume": 0.8,
+        "pitch": 0.82
+      }
+    ]
+  },
+  "pokemon.threiscue.cry": {
+    "sounds": [
+      {
+        "name": "cobblemon:pokemon/eiscueice/eiscueice_cry",
+        "volume": 0.8,
+        "pitch": 0.78
+      }
+    ]
+  },
+  "pokemon.cryptonix.cry": {
+    "sounds": [
+      {
+        "name": "cobblemon:pokemon/onix/onix_cry",
+        "volume": 0.8,
+        "pitch": 0.72
+      }
+    ]
+  },
+  "pokemon.avalott.cry": {
+    "sounds": [
+      {
+        "name": "cobblemon:pokemon/bergmite/bergmite_cry",
+        "volume": 0.8,
+        "pitch": 0.74
+      }
+    ]
+  },
+  "pokemon.cleaweed.cry": {
+    "sounds": [
+      {
+        "name": "cobblemon:pokemon/skrelp/skrelp_cry",
+        "volume": 0.8,
+        "pitch": 0.8
+      }
+    ]
+  }
+}

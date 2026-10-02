@@ -1,0 +1,210 @@
+{
+  "implemented": true,
+  "nationalPokedexNumber": 1080,
+  "name": "Threiscue",
+  "primaryType": "ice",
+  "secondaryType": "water",
+  "maleRatio": 0.5,
+  "height": 21,
+  "weight": 1500,
+  "pokedex": [
+    "cobblemon.species.threiscue.desc"
+  ],
+  "labels": [
+    "custom",
+    "windwave",
+    "gen9"
+  ],
+  "aspects": [],
+  "abilities": [
+    "icebody",
+    "swiftswim",
+    "h:slushrush"
+  ],
+  "eggGroups": [
+    "water_1",
+    "field"
+  ],
+  "baseStats": {
+    "hp": 95,
+    "attack": 80,
+    "defence": 115,
+    "special_attack": 110,
+    "special_defence": 100,
+    "speed": 50
+  },
+  "evYield": {
+    "hp": 0,
+    "attack": 0,
+    "defence": 1,
+    "special_attack": 2,
+    "special_defence": 0,
+    "speed": 0
+  },
+  "baseExperienceYield": 190,
+  "experienceGroup": "slow",
+  "catchRate": 45,
+  "eggCycles": 25,
+  "baseFriendship": 50,
+  "baseScale": 0.42,
+  "hitbox": {
+    "width": 3.0,
+    "height": 6.6,
+    "fixed": false
+  },
+  "drops": {
+    "amount": 4,
+    "entries": [
+      {
+        "item": "minecraft:blue_ice",
+        "quantityRange": "1-2"
+      },
+      {
+        "item": "minecraft:feather",
+        "quantityRange": "0-2"
+      },
+      {
+        "item": "minecraft:cod",
+        "quantityRange": "0-2"
+      },
+      {
+        "item": "cobblemon:never_melt_ice",
+        "percentage": 5.0
+      },
+      {
+        "item": "cobblemon:aspear_berry",
+        "percentage": 5.0
+      }
+    ]
+  },
+  "moves": [
+    "1:triplefreezebeam",
+    "1:powdersnow",
+    "1:tackle",
+    "1:waterpulse",
+    "6:mist",
+    "12:weatherball",
+    "18:icywind",
+    "24:headbutt",
+    "30:amnesia",
+    "36:freezedry",
+    "42:snowscape",
+    "48:auroraveil",
+    "54:surf",
+    "60:blizzard",
+    "66:hydropump",
+    "egg:aquaring",
+    "egg:bellydrum",
+    "egg:doubleedge",
+    "egg:headsmash",
+    "egg:iciclecrash",
+    "egg:soak",
+    "tm:agility",
+    "tm:amnesia",
+    "tm:auroraveil",
+    "tm:avalanche",
+    "tm:blizzard",
+    "tm:bodyslam",
+    "tm:brine",
+    "tm:calmmind",
+    "tm:chillingwater",
+    "tm:dive",
+    "tm:doubleedge",
+    "tm:endure",
+    "tm:facade",
+    "tm:featherdance",
+    "tm:flipturn",
+    "tm:frostbreath",
+    "tm:gigaimpact",
+    "tm:hail",
+    "tm:headbutt",
+    "tm:hydropump",
+    "tm:hyperbeam",
+    "tm:icebeam",
+    "tm:icepunch",
+    "tm:icespinner",
+    "tm:iciclespear",
+    "tm:icywind",
+    "tm:irondefense",
+    "tm:ironhead",
+    "tm:lightscreen",
+    "tm:liquidation",
+    "tm:protect",
+    "tm:raindance",
+    "tm:reflect",
+    "tm:rest",
+    "tm:reversal",
+    "tm:scald",
+    "tm:sleeptalk",
+    "tm:snowscape",
+    "tm:substitute",
+    "tm:surf",
+    "tm:takedown",
+    "tm:terablast",
+    "tm:triplefreezebeam",
+    "tm:waterfall",
+    "tm:waterpulse",
+    "tm:weatherball",
+    "tm:whirlpool",
+    "tm:zenheadbutt",
+    "tutor:dive",
+    "tutor:flipturn",
+    "tutor:gigaimpact",
+    "tutor:hyperbeam",
+    "tutor:icebeam",
+    "tutor:icepunch",
+    "tutor:icywind",
+    "tutor:irondefense",
+    "tutor:ironhead",
+    "tutor:liquidation",
+    "tutor:rest",
+    "tutor:sleeptalk",
+    "tutor:waterpulse",
+    "tutor:zenheadbutt",
+    "legacy:attract",
+    "legacy:round",
+    "legacy:snore"
+  ],
+  "preEvolution": "eiscue",
+  "evolutions": [],
+  "lightingData": {
+    "lightLevel": 8,
+    "liquidGlowMode": "BOTH"
+  },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "light": "0-4",
+      "drowsyChance": 0.0333,
+      "rouseChance": 0.0042
+    },
+    "moving": {
+      "walk": {
+        "walkSpeed": 0.18
+      },
+      "swim": {
+        "swimSpeed": 0.25,
+        "canBreatheUnderwater": true,
+        "canWalkOnWater": false
+      }
+    },
+    "combat": {
+      "willDefendOwner": true,
+      "willDefendSelf": true,
+      "willFlee": false
+    },
+    "herd": {
+      "maxSize": 8,
+      "toleratedLeaders": [
+        {
+          "pokemon": "threiscue alpha",
+          "tier": 1
+        },
+        {
+          "pokemon": "empoleon",
+          "tier": 2
+        }
+      ]
+    }
+  }
+}

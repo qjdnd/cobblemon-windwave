@@ -1,0 +1,74 @@
+{
+  "target": "cobblemon:skrelp",
+  "evolutions": [
+    {
+      "id": "skrelp_cleaweed_stone",
+      "variant": "item_interact",
+      "result": "cleaweed",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "cleansingnet"
+      ],
+      "requirements": [
+        {
+          "variant": "any",
+          "possibilities": [
+            {
+              "variant": "biome",
+              "biomeCondition": "#cobblemon:is_ocean"
+            },
+            {
+              "variant": "biome",
+              "biomeCondition": "#cobblemon:is_freshwater"
+            },
+            {
+              "variant": "biome",
+              "biomeCondition": "#cobblemon:is_swamp"
+            },
+            {
+              "variant": "biome",
+              "biomeCondition": "#cobblemon:is_coast"
+            }
+          ]
+        }
+      ],
+      "requiredContext": "cobblemon:leaf_stone"
+    },
+    {
+      "id": "skrelp_cleaweed_cleanup",
+      "variant": "level_up",
+      "result": "cleaweed",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "cleansingnet"
+      ],
+      "requirements": [
+        {
+          "variant": "level",
+          "minLevel": 30
+        },
+        {
+          "variant": "defeat",
+          "target": "type=poison",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "id": "skrelp_cleaweed_pulse",
+      "variant": "level_up",
+      "result": "cleaweed",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "cleansingnet"
+      ],
+      "requirements": [
+        {
+          "variant": "use_move",
+          "move": "waterpulse",
+          "amount": 20
+        }
+      ]
+    }
+  ]
+}

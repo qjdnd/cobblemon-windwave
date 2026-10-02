@@ -1,0 +1,79 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "cleaweed-1",
+      "pokemon": "cleaweed",
+      "presets": [
+        "water"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "rare",
+      "level": "40-60",
+      "weight": 5.0,
+      "condition": {
+        "biomes": [
+          "#cobblemon:is_ocean"
+        ],
+        "neededNearbyBlocks": [
+          "minecraft:kelp_plant",
+          "minecraft:seagrass",
+          "minecraft:tall_seagrass"
+        ]
+      }
+    },
+    {
+      "id": "cleaweed-2",
+      "pokemon": "cleaweed",
+      "presets": [
+        "water"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "submerged",
+      "bucket": "rare",
+      "level": "40-60",
+      "weight": 3.0,
+      "condition": {
+        "biomes": [
+          "#cobblemon:is_freshwater",
+          "#cobblemon:is_swamp"
+        ]
+      }
+    },
+    {
+      "id": "cleaweed-3",
+      "pokemon": "cleaweed",
+      "type": "pokemon",
+      "spawnablePositionType": "fishing",
+      "bucket": "rare",
+      "level": "40-60",
+      "weight": 6.0,
+      "condition": {
+        "biomes": [
+          "#cobblemon:is_ocean",
+          "#cobblemon:is_coast",
+          "#cobblemon:is_freshwater",
+          "#cobblemon:is_swamp"
+        ]
+      },
+      "weightMultipliers": [
+        {
+          "multiplier": 3.0,
+          "condition": {
+            "minLureLevel": 2,
+            "maxLureLevel": 2
+          }
+        },
+        {
+          "multiplier": 5.0,
+          "condition": {
+            "minLureLevel": 3
+          }
+        }
+      ]
+    }
+  ]
+}

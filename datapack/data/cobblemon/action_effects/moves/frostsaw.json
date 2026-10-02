@@ -1,0 +1,94 @@
+{
+  "timeline": [
+    {
+      "type": "add_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "animation",
+      "animation": [
+        "frostsaw",
+        "physical"
+      ],
+      "delay": 1.2
+    },
+    {
+      "type": "entity_sound",
+      "sound": "cobblemon:move.iceshard.actor_1"
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:windwave_frostsaw_slash",
+      "locators": [
+        "middle",
+        "target"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:impact_ice",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 0.3
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:icebeam_targetburst",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:move.iceshard.target"
+    },
+    {
+      "type": "pause",
+      "pause": 0.25
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:impact_steel",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:impact.steel"
+    },
+    {
+      "type": "remove_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 1.2
+    },
+    {
+      "type": "entity_particles",
+      "effect": "cobblemon:windwave_frostsaw_frost",
+      "locators": [
+        "root"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 0.8
+    }
+  ]
+}

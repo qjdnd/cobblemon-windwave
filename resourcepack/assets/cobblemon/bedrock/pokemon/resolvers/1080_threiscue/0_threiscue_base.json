@@ -1,0 +1,31 @@
+{
+  "species": "cobblemon:threiscue",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:threiscue",
+      "model": "cobblemon:threiscue.geo",
+      "texture": "cobblemon:textures/pokemon/1080_threiscue/threiscue.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/1080_threiscue/threiscue_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/1080_threiscue/threiscue_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

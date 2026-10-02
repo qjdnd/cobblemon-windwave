@@ -1,0 +1,75 @@
+{
+  "target": "cobblemon:bergmite",
+  "evolutions": [
+    {
+      "id": "bergmite_avalott_trade",
+      "variant": "trade",
+      "result": "avalott",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "frostsaw"
+      ],
+      "requirements": [],
+      "requiredContext": "frigibax",
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "type": "evolution",
+            "item": "minecraft:blue_ice",
+            "percentage": 100.0,
+            "requirements": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "bergmite_avalott_link",
+      "variant": "item_interact",
+      "result": "avalott",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "frostsaw"
+      ],
+      "requirements": [
+        {
+          "variant": "party_member",
+          "target": "frigibax",
+          "contains": true
+        }
+      ],
+      "requiredContext": "cobblemon:link_cable",
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "type": "evolution",
+            "item": "minecraft:blue_ice",
+            "percentage": 100.0,
+            "requirements": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "bergmite_avalott_coat",
+      "variant": "item_interact",
+      "result": "avalott",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "frostsaw"
+      ],
+      "requirements": [
+        {
+          "variant": "level",
+          "minLevel": 30
+        },
+        {
+          "variant": "biome",
+          "biomeCondition": "#cobblemon:is_freezing"
+        }
+      ],
+      "requiredContext": "cobblemon:metal_coat"
+    }
+  ]
+}

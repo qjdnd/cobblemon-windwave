@@ -1,0 +1,83 @@
+{
+  "timeline": [
+    {
+      "type": "add_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "animation",
+      "animation": [
+        "cleansingnet",
+        "special"
+      ],
+      "delay": 0.5
+    },
+    {
+      "type": "entity_sound",
+      "sound": "cobblemon:move.leafstorm.actor"
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:windwave_cleansing_net",
+      "locators": [
+        "middle",
+        "target"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 1.0
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:bubble_targetpop",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:move.bubble.target"
+    },
+    {
+      "type": "pause",
+      "pause": 0.8
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:waterpulse_target",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:impact_water",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:move.waterpulse.target"
+    },
+    {
+      "type": "remove_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 1.2
+    }
+  ]
+}

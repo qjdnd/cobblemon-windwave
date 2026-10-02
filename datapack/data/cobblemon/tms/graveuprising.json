@@ -1,0 +1,19 @@
+{
+  "moveName": "graveuprising",
+  "obtainMethods": [
+    {
+      "variant": "cobblemon:unlockable"
+    }
+  ],
+  "type": "ghost",
+  "recipe": [
+    {
+      "item": "cobblemon:ghost_gem",
+      "count": 3
+    },
+    {
+      "item": "cobblemon:spell_tag",
+      "count": 1
+    }
+  ]
+}

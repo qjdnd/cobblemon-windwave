@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "pack_format": 48,
+    "supported_formats": [
+      48,
+      48
+    ],
+    "description": "§bWindwave§r Pokémon v1.0.0 §7(Cobblemon 1.8.1)§r\n종·진화·전용기·스폰·도감·TM"
+  }
+}

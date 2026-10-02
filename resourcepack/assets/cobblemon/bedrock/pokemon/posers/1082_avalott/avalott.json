@@ -1,0 +1,117 @@
+{
+  "portraitScale": 0.85,
+  "portraitTranslation": [
+    -0.43,
+    1.62,
+    0
+  ],
+  "profileScale": 0.42,
+  "profileTranslation": [
+    0,
+    1.0,
+    0
+  ],
+  "rootBone": "avalott",
+  "animations": {
+    "cry": "q.bedrock_stateful('avalott', 'cry')",
+    "recoil": "q.bedrock_stateful('avalott', 'recoil')",
+    "faint": "q.bedrock_primary('avalott', 'faint', q.curve('one'))",
+    "physical": "q.bedrock_primary('avalott', 'physical', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('avalott', 'special', q.curve('symmetrical'))",
+    "status": "q.bedrock_primary('avalott', 'status', q.curve('symmetrical'))",
+    "frostsaw": "q.bedrock_primary('avalott', 'frostsaw', q.curve('symmetrical'))"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": [
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.bedrock('avalott', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('avalott', 'blink')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.bedrock('avalott', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('avalott', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE"
+      ],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": [
+        "q.bedrock('avalott', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('avalott', 'blink')",
+        "q.bedrock_quirk('avalott', q.array('quirk_spin', 'quirk_shake'), 15, 45, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "isTouchingWater": false,
+      "animations": [
+        "q.bedrock('avalott', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('avalott', 'blink')"
+      ]
+    },
+    "float": {
+      "poseTypes": [
+        "FLOAT",
+        "STAND",
+        "NONE"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.bedrock('avalott', 'water_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('avalott', 'blink')"
+      ]
+    },
+    "swim": {
+      "poseTypes": [
+        "SWIM",
+        "WALK"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.bedrock('avalott', 'water_swim')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('avalott', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "q.bedrock('avalott', 'sleep')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      }
+    }
+  }
+}

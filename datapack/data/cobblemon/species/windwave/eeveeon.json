@@ -1,0 +1,229 @@
+{
+  "implemented": true,
+  "nationalPokedexNumber": 1079,
+  "name": "Eeveeon",
+  "primaryType": "normal",
+  "maleRatio": 0.875,
+  "height": 11,
+  "weight": 320,
+  "pokedex": [
+    "cobblemon.species.eeveeon.desc"
+  ],
+  "labels": [
+    "custom",
+    "windwave",
+    "gen9"
+  ],
+  "aspects": [],
+  "abilities": [
+    "adaptability",
+    "scrappy",
+    "h:serenegrace"
+  ],
+  "eggGroups": [
+    "field"
+  ],
+  "baseStats": {
+    "hp": 95,
+    "attack": 75,
+    "defence": 70,
+    "special_attack": 110,
+    "special_defence": 100,
+    "speed": 75
+  },
+  "evYield": {
+    "hp": 0,
+    "attack": 0,
+    "defence": 0,
+    "special_attack": 2,
+    "special_defence": 0,
+    "speed": 0
+  },
+  "baseExperienceYield": 184,
+  "experienceGroup": "medium_fast",
+  "catchRate": 45,
+  "eggCycles": 35,
+  "baseFriendship": 50,
+  "baseScale": 0.5,
+  "hitbox": {
+    "width": 2.2,
+    "height": 3.3,
+    "fixed": false
+  },
+  "drops": {
+    "amount": 2,
+    "entries": [
+      {
+        "item": "cobblemon:silk_scarf",
+        "percentage": 10.0
+      },
+      {
+        "item": "cobblemon:normal_gem",
+        "percentage": 5.0
+      },
+      {
+        "item": "minecraft:white_wool",
+        "quantityRange": "0-1"
+      }
+    ]
+  },
+  "moves": [
+    "1:lastevolution",
+    "1:tackle",
+    "1:tailwhip",
+    "1:helpinghand",
+    "1:growl",
+    "1:covet",
+    "5:sandattack",
+    "10:quickattack",
+    "15:babydolleyes",
+    "20:swift",
+    "25:bite",
+    "30:triattack",
+    "35:batonpass",
+    "40:hypervoice",
+    "45:calmmind",
+    "50:boomburst",
+    "55:lastresort",
+    "60:hyperbeam",
+    "egg:captivate",
+    "egg:curse",
+    "egg:detect",
+    "egg:doublekick",
+    "egg:flail",
+    "egg:mudslap",
+    "egg:naturalgift",
+    "egg:synchronoise",
+    "egg:tickle",
+    "egg:wish",
+    "egg:yawn",
+    "tm:alluringvoice",
+    "tm:babydolleyes",
+    "tm:batonpass",
+    "tm:bodyslam",
+    "tm:calmmind",
+    "tm:charm",
+    "tm:covet",
+    "tm:curse",
+    "tm:dazzlinggleam",
+    "tm:dig",
+    "tm:doubleedge",
+    "tm:drainingkiss",
+    "tm:echoedvoice",
+    "tm:endure",
+    "tm:facade",
+    "tm:faketears",
+    "tm:focusenergy",
+    "tm:gigaimpact",
+    "tm:headbutt",
+    "tm:healbell",
+    "tm:helpinghand",
+    "tm:hyperbeam",
+    "tm:hypervoice",
+    "tm:irontail",
+    "tm:laserfocus",
+    "tm:lastevolution",
+    "tm:lastresort",
+    "tm:mudslap",
+    "tm:payday",
+    "tm:playrough",
+    "tm:protect",
+    "tm:psyshock",
+    "tm:raindance",
+    "tm:rest",
+    "tm:retaliate",
+    "tm:roar",
+    "tm:shadowball",
+    "tm:sleeptalk",
+    "tm:snarl",
+    "tm:storedpower",
+    "tm:substitute",
+    "tm:sunnyday",
+    "tm:swift",
+    "tm:takedown",
+    "tm:terablast",
+    "tm:trailblaze",
+    "tm:triattack",
+    "tm:uproar",
+    "tm:weatherball",
+    "tm:workup",
+    "tutor:boomburst",
+    "tutor:covet",
+    "tutor:gigaimpact",
+    "tutor:healbell",
+    "tutor:helpinghand",
+    "tutor:hyperbeam",
+    "tutor:hypervoice",
+    "tutor:irontail",
+    "tutor:lastresort",
+    "tutor:shadowball",
+    "tutor:swift",
+    "tutor:uproar",
+    "legacy:attract",
+    "legacy:captivate",
+    "legacy:confide",
+    "legacy:doubleteam",
+    "legacy:frustration",
+    "legacy:hiddenpower",
+    "legacy:naturalgift",
+    "legacy:return",
+    "legacy:round",
+    "legacy:secretpower",
+    "legacy:snore",
+    "legacy:swagger",
+    "legacy:toxic"
+  ],
+  "preEvolution": "eevee",
+  "evolutions": [],
+  "riding": {
+    "behaviours": {
+      "LAND": {
+        "key": "cobblemon:land/horse",
+        "rideSounds": [],
+        "stats": {
+          "ACCELERATION": "55-75",
+          "JUMP": "45-65",
+          "SKILL": "50-75",
+          "SPEED": "50-70",
+          "STAMINA": "40-65"
+        }
+      }
+    },
+    "seats": [
+      {
+        "locator": "seat_1"
+      }
+    ]
+  },
+  "behaviour": {
+    "resting": {
+      "canSleep": true,
+      "willSleepOnBed": true,
+      "light": "0-15",
+      "drowsyChance": 0.0333,
+      "rouseChance": 0.0042
+    },
+    "moving": {
+      "walk": {
+        "walkSpeed": 0.3
+      },
+      "swim": {
+        "avoidsWater": true
+      }
+    },
+    "combat": {
+      "willDefendOwner": true,
+      "willDefendSelf": true,
+      "willFlee": false
+    },
+    "herd": {
+      "maxSize": 6,
+      "toleratedLeaders": [
+        {
+          "pokemon": "eeveeon alpha",
+          "tier": 1
+        }
+      ]
+    }
+  }
+}

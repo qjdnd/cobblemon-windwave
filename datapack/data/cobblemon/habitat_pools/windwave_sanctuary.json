@@ -1,0 +1,120 @@
+{
+  "name": "cobblemon.habitat.windwave_sanctuary.name",
+  "type": "cobblemon:natural",
+  "spawns": [
+    {
+      "species": "Eevee",
+      "bucket": "common",
+      "spawnablePositionType": "grounded",
+      "weight": 8.0,
+      "levelRange": "5-30",
+      "phases": "1"
+    },
+    {
+      "species": "Eeveeon",
+      "bucket": "rare",
+      "spawnablePositionType": "grounded",
+      "weight": 1.5,
+      "levelRange": "30-50",
+      "phases": "1"
+    },
+    {
+      "species": "Eiscue",
+      "bucket": "common",
+      "spawnablePositionType": "grounded",
+      "weight": 8.0,
+      "levelRange": "22-45",
+      "phases": "2"
+    },
+    {
+      "species": "Threiscue",
+      "bucket": "rare",
+      "spawnablePositionType": "grounded",
+      "weight": 1.5,
+      "levelRange": "40-55",
+      "phases": "2"
+    },
+    {
+      "species": "Onix",
+      "bucket": "common",
+      "spawnablePositionType": "grounded",
+      "weight": 8.0,
+      "levelRange": "14-39",
+      "phases": "3"
+    },
+    {
+      "species": "Cryptonix",
+      "bucket": "rare",
+      "spawnablePositionType": "grounded",
+      "weight": 1.5,
+      "levelRange": "40-60",
+      "phases": "3",
+      "timeRange": "night"
+    },
+    {
+      "species": "Bergmite",
+      "bucket": "common",
+      "spawnablePositionType": "grounded",
+      "weight": 8.0,
+      "levelRange": "8-30",
+      "phases": "4"
+    },
+    {
+      "species": "Frigibax",
+      "bucket": "uncommon",
+      "spawnablePositionType": "grounded",
+      "weight": 3.0,
+      "levelRange": "8-30",
+      "phases": "4"
+    },
+    {
+      "species": "Avalott",
+      "bucket": "rare",
+      "spawnablePositionType": "grounded",
+      "weight": 1.5,
+      "levelRange": "37-55",
+      "phases": "4"
+    },
+    {
+      "species": "Skrelp",
+      "bucket": "common",
+      "spawnablePositionType": "grounded",
+      "weight": 6.0,
+      "levelRange": "7-32",
+      "phases": "5"
+    },
+    {
+      "species": "Trubbish",
+      "bucket": "uncommon",
+      "spawnablePositionType": "grounded",
+      "weight": 3.0,
+      "levelRange": "10-30",
+      "phases": "5"
+    },
+    {
+      "species": "Cleaweed",
+      "bucket": "rare",
+      "spawnablePositionType": "grounded",
+      "weight": 1.5,
+      "levelRange": "40-55",
+      "phases": "5"
+    },
+    {
+      "species": "Eeveeon",
+      "bucket": "ultra-rare",
+      "spawnablePositionType": "grounded",
+      "weight": 1.0,
+      "levelRange": "50-70",
+      "phases": "6",
+      "modifiers": "alpha=true held_item=cobblemon:normal_gem"
+    },
+    {
+      "species": "Eevee",
+      "bucket": "common",
+      "spawnablePositionType": "grounded",
+      "weight": 6.0,
+      "levelRange": "20-40",
+      "phases": "6"
+    }
+  ]
+}

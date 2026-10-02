@@ -1,0 +1,78 @@
+{
+  "timeline": [
+    {
+      "type": "add_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "animation",
+      "animation": [
+        "graveuprising",
+        "physical"
+      ],
+      "delay": 0.8
+    },
+    {
+      "type": "entity_sound",
+      "sound": "cobblemon:move.shadowball.actor"
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:windwave_grave_rubble",
+      "locators": [
+        "root"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:windwave_grave_spirits",
+      "locators": [
+        "root"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:impact.rock"
+    },
+    {
+      "type": "pause",
+      "pause": 0.35
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:shadowball_targetimpact",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:impact_ghost",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:move.shadowball.target"
+    },
+    {
+      "type": "remove_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 1.8
+    }
+  ]
+}

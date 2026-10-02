@@ -1,0 +1,86 @@
+{
+  "timeline": [
+    {
+      "type": "add_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "effect": "cobblemon:windwave_lastevolution_charge",
+      "locators": [
+        "middle",
+        "root"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "sound": "cobblemon:move.swordsdance.actor"
+    },
+    {
+      "type": "animation",
+      "animation": [
+        "lastevolution",
+        "special"
+      ],
+      "delay": 1.85
+    },
+    {
+      "type": "entity_particles",
+      "effect": "cobblemon:evo_sparkleburst",
+      "locators": [
+        "middle",
+        "root"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "sound": "cobblemon:move.dracometeor.actor_2"
+    },
+    {
+      "type": "pause",
+      "pause": 0.25
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:windwave_lastevolution_ring",
+      "locators": [
+        "middle",
+        "target"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:windwave_lastevolution_burst",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_particles",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "effect": "cobblemon:impact_normal",
+      "locators": [
+        "target"
+      ]
+    },
+    {
+      "type": "entity_sound",
+      "entityCondition": "q.entity.is_user == false && q.missed(q.entity.uuid) == false",
+      "sound": "cobblemon:impact.normal"
+    },
+    {
+      "type": "remove_holds",
+      "holds": [
+        "effects"
+      ]
+    },
+    {
+      "type": "pause",
+      "pause": 1.5
+    }
+  ]
+}

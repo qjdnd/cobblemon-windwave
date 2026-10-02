@@ -1,0 +1,65 @@
+{
+  "target": "cobblemon:eevee",
+  "evolutions": [
+    {
+      "id": "eevee_eeveeon_gem",
+      "variant": "item_interact",
+      "result": "eeveeon",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "lastevolution"
+      ],
+      "requirements": [],
+      "requiredContext": "cobblemon:normal_gem"
+    },
+    {
+      "id": "eevee_eeveeon_scarf",
+      "variant": "level_up",
+      "result": "eeveeon",
+      "consumeHeldItem": true,
+      "learnableMoves": [
+        "lastevolution"
+      ],
+      "requirements": [
+        {
+          "variant": "friendship",
+          "amount": 200
+        },
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:silk_scarf"
+        }
+      ]
+    },
+    {
+      "id": "eevee_eeveeon_lastresort",
+      "variant": "level_up",
+      "result": "eeveeon",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "lastevolution"
+      ],
+      "requirements": [
+        {
+          "variant": "level",
+          "minLevel": 30
+        },
+        {
+          "variant": "has_move",
+          "move": "lastresort"
+        }
+      ],
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "type": "evolution",
+            "item": "cobblemon:normal_gem",
+            "percentage": 100.0,
+            "requirements": []
+          }
+        ]
+      }
+    }
+  ]
+}

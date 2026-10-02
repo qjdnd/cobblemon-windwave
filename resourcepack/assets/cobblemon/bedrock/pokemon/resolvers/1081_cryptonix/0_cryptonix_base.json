@@ -1,0 +1,31 @@
+{
+  "species": "cobblemon:cryptonix",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:cryptonix",
+      "model": "cobblemon:cryptonix.geo",
+      "texture": "cobblemon:textures/pokemon/1081_cryptonix/cryptonix.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/1081_cryptonix/cryptonix_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/1081_cryptonix/cryptonix_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

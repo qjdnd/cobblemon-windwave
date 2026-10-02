@@ -1,0 +1,31 @@
+{
+  "species": "cobblemon:cleaweed",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:cleaweed",
+      "model": "cobblemon:cleaweed.geo",
+      "texture": "cobblemon:textures/pokemon/1083_cleaweed/cleaweed.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/1083_cleaweed/cleaweed_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/1083_cleaweed/cleaweed_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

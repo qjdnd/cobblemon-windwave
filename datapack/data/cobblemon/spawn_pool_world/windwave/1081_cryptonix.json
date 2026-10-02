@@ -1,0 +1,58 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "cryptonix-1",
+      "pokemon": "cryptonix",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "ultra-rare",
+      "level": "40-65",
+      "weight": 3.0,
+      "condition": {
+        "maxSkyLight": 7,
+        "biomes": [
+          "#cobblemon:is_deep_dark"
+        ]
+      }
+    },
+    {
+      "id": "cryptonix-2",
+      "pokemon": "cryptonix",
+      "presets": [
+        "ancient_city"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "40-65",
+      "weight": 8.0,
+      "condition": {
+        "canSeeSky": false
+      }
+    },
+    {
+      "id": "cryptonix-3",
+      "pokemon": "cryptonix",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "ultra-rare",
+      "level": "40-65",
+      "weight": 2.0,
+      "condition": {
+        "timeRange": "night",
+        "biomes": [
+          "#cobblemon:is_spooky"
+        ]
+      }
+    }
+  ]
+}

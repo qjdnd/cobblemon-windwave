@@ -1,0 +1,137 @@
+{
+  "portraitScale": 1.25,
+  "portraitTranslation": [
+    -1.04,
+    2.26,
+    0
+  ],
+  "profileScale": 0.44,
+  "profileTranslation": [
+    0,
+    0.7,
+    0
+  ],
+  "rootBone": "eeveeon",
+  "animations": {
+    "cry": "q.bedrock_stateful('eeveeon', 'cry')",
+    "recoil": "q.bedrock_stateful('eeveeon', 'recoil')",
+    "faint": "q.bedrock_primary('eeveeon', 'faint', q.curve('one'))",
+    "physical": "q.bedrock_primary('eeveeon', 'physical', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('eeveeon', 'special', q.curve('symmetrical'))",
+    "status": "q.bedrock_primary('eeveeon', 'status', q.curve('symmetrical'))",
+    "lastevolution": "q.bedrock_primary('eeveeon', 'lastevolution', q.curve('symmetrical'))"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": [
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.bedrock('eeveeon', 'pose')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head_ai', 1, 1, 50, -35, 45, -45)",
+        "q.bedrock('eeveeon', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE"
+      ],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 50, -35, 45, -45)",
+        "q.bedrock('eeveeon', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')",
+        "q.bedrock_quirk('eeveeon', q.array('quirk_earflick', 'quirk_tailfan', 'quirk_stretch'), 15, 45, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "condition": "!q.is_sprinting",
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 50, -35, 45, -45)",
+        "q.bedrock('eeveeon', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')"
+      ]
+    },
+    "running": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "condition": "q.is_sprinting",
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 50, -35, 45, -45)",
+        "q.bedrock('eeveeon', 'ground_run')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')"
+      ]
+    },
+    "float": {
+      "poseTypes": [
+        "FLOAT",
+        "STAND",
+        "NONE"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.look('head_ai', 1, 1, 50, -35, 45, -45)",
+        "q.bedrock('eeveeon', 'water_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')"
+      ]
+    },
+    "swim": {
+      "poseTypes": [
+        "SWIM",
+        "WALK"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.look('head_ai', 1, 1, 50, -35, 45, -45)",
+        "q.bedrock('eeveeon', 'water_swim')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('eeveeon', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "q.bedrock('eeveeon', 'sleep')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      }
+    }
+  }
+}

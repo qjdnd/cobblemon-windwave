@@ -1,0 +1,122 @@
+{
+  "portraitScale": 1.9,
+  "portraitTranslation": [
+    -0.75,
+    2.0,
+    0
+  ],
+  "profileScale": 0.64,
+  "profileTranslation": [
+    0,
+    0.95,
+    0
+  ],
+  "rootBone": "cleaweed",
+  "animations": {
+    "cry": "q.bedrock_stateful('cleaweed', 'cry')",
+    "recoil": "q.bedrock_stateful('cleaweed', 'recoil')",
+    "faint": "q.bedrock_primary('cleaweed', 'faint', q.curve('one'))",
+    "physical": "q.bedrock_primary('cleaweed', 'physical', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('cleaweed', 'special', q.curve('symmetrical'))",
+    "status": "q.bedrock_primary('cleaweed', 'status', q.curve('symmetrical'))",
+    "cleansingnet": "q.bedrock_primary('cleaweed', 'cleansingnet', q.curve('symmetrical'))"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": [
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.bedrock('cleaweed', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cleaweed', 'blink')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head', 0.8, 0.8, 30, -30, 40, -40)",
+        "q.bedrock('cleaweed', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cleaweed', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE"
+      ],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head', 0.8, 0.8, 30, -30, 40, -40)",
+        "q.bedrock('cleaweed', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cleaweed', 'blink')",
+        "q.bedrock_quirk('cleaweed', q.array('quirk_preen', 'quirk_bubble'), 15, 45, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head', 0.8, 0.8, 30, -30, 40, -40)",
+        "q.bedrock('cleaweed', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cleaweed', 'blink')"
+      ]
+    },
+    "float": {
+      "poseTypes": [
+        "FLOAT",
+        "STAND",
+        "NONE"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.look('head', 0.8, 0.8, 30, -30, 40, -40)",
+        "q.bedrock('cleaweed', 'water_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cleaweed', 'blink')"
+      ]
+    },
+    "swim": {
+      "poseTypes": [
+        "SWIM",
+        "WALK"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.look('head', 0.8, 0.8, 30, -30, 40, -40)",
+        "q.bedrock('cleaweed', 'water_swim')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cleaweed', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "q.bedrock('cleaweed', 'sleep')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      }
+    }
+  }
+}

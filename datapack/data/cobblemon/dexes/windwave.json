@@ -1,0 +1,12 @@
+{
+  "type": "cobblemon:simple_pokedex_def",
+  "id": "cobblemon:windwave",
+  "sortOrder": 12,
+  "entries": [
+    "cobblemon:eeveeon",
+    "cobblemon:threiscue",
+    "cobblemon:cryptonix",
+    "cobblemon:avalott",
+    "cobblemon:cleaweed"
+  ]
+}

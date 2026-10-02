@@ -1,0 +1,19 @@
+{
+  "moveName": "lastevolution",
+  "obtainMethods": [
+    {
+      "variant": "cobblemon:unlockable"
+    }
+  ],
+  "type": "normal",
+  "recipe": [
+    {
+      "item": "cobblemon:normal_gem",
+      "count": 3
+    },
+    {
+      "item": "cobblemon:eviolite",
+      "count": 1
+    }
+  ]
+}

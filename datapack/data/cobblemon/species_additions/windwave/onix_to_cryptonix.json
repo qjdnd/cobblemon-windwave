@@ -1,0 +1,75 @@
+{
+  "target": "cobblemon:onix",
+  "evolutions": [
+    {
+      "id": "onix_cryptonix_trade",
+      "variant": "trade",
+      "result": "cryptonix",
+      "consumeHeldItem": true,
+      "learnableMoves": [
+        "graveuprising"
+      ],
+      "requirements": [
+        {
+          "variant": "held_item",
+          "itemCondition": "cobblemon:reaper_cloth"
+        }
+      ]
+    },
+    {
+      "id": "onix_cryptonix_cloth",
+      "variant": "item_interact",
+      "result": "cryptonix",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "graveuprising"
+      ],
+      "requirements": [
+        {
+          "variant": "time_range",
+          "range": "night"
+        }
+      ],
+      "requiredContext": "cobblemon:reaper_cloth"
+    },
+    {
+      "id": "onix_cryptonix_crypt",
+      "variant": "level_up",
+      "result": "cryptonix",
+      "consumeHeldItem": false,
+      "learnableMoves": [
+        "graveuprising"
+      ],
+      "requirements": [
+        {
+          "variant": "level",
+          "minLevel": 40
+        },
+        {
+          "variant": "any",
+          "possibilities": [
+            {
+              "variant": "structure",
+              "structureCondition": "minecraft:ancient_city"
+            },
+            {
+              "variant": "biome",
+              "biomeCondition": "#cobblemon:is_deep_dark"
+            }
+          ]
+        }
+      ],
+      "drops": {
+        "amount": 1,
+        "entries": [
+          {
+            "type": "evolution",
+            "item": "minecraft:soul_sand",
+            "percentage": 100.0,
+            "requirements": []
+          }
+        ]
+      }
+    }
+  ]
+}

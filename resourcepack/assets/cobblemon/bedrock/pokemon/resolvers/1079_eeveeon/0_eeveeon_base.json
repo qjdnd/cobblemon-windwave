@@ -1,0 +1,31 @@
+{
+  "species": "cobblemon:eeveeon",
+  "order": 0,
+  "variations": [
+    {
+      "aspects": [],
+      "poser": "cobblemon:eeveeon",
+      "model": "cobblemon:eeveeon.geo",
+      "texture": "cobblemon:textures/pokemon/1079_eeveeon/eeveeon.png",
+      "layers": []
+    },
+    {
+      "aspects": [
+        "shiny"
+      ],
+      "texture": "cobblemon:textures/pokemon/1079_eeveeon/eeveeon_shiny.png"
+    },
+    {
+      "aspects": [
+        "alpha_eyes"
+      ],
+      "layers": [
+        {
+          "name": "alpha_eyes",
+          "texture": "cobblemon:textures/pokemon/1079_eeveeon/eeveeon_alpha.png",
+          "emissive": true
+        }
+      ]
+    }
+  ]
+}

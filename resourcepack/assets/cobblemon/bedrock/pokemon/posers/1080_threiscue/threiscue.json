@@ -1,0 +1,153 @@
+{
+  "portraitScale": 1.0,
+  "portraitTranslation": [
+    -0.43,
+    2.08,
+    0
+  ],
+  "profileScale": 0.28,
+  "profileTranslation": [
+    0,
+    1.0,
+    0
+  ],
+  "rootBone": "threiscue",
+  "animations": {
+    "cry": "q.bedrock_stateful('threiscue', 'cry')",
+    "recoil": "q.bedrock_stateful('threiscue', 'recoil')",
+    "faint": "q.bedrock_primary('threiscue', 'faint', q.curve('one'))",
+    "physical": "q.bedrock_primary('threiscue', 'physical', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('threiscue', 'special', q.curve('symmetrical'))",
+    "status": "q.bedrock_primary('threiscue', 'status', q.curve('symmetrical'))",
+    "triplefreezebeam": "q.bedrock_primary('threiscue', 'triplefreezebeam', q.curve('symmetrical'))"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": [
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.bedrock('threiscue', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE"
+      ],
+      "isBattle": false,
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')",
+        "q.bedrock_quirk('threiscue', q.array('quirk_swing', 'quirk_shiver', 'quirk_bob'), 15, 45, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "condition": "!q.is_sprinting",
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "running": {
+      "poseTypes": [
+        "WALK"
+      ],
+      "condition": "q.is_sprinting",
+      "isTouchingWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'ground_run')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "surface": {
+      "poseTypes": [
+        "FLOAT",
+        "STAND",
+        "NONE"
+      ],
+      "isTouchingWater": true,
+      "isUnderWater": false,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'water_surface')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "underwater": {
+      "poseTypes": [
+        "FLOAT",
+        "STAND",
+        "NONE"
+      ],
+      "isUnderWater": true,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'water_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "swim": {
+      "poseTypes": [
+        "SWIM",
+        "WALK"
+      ],
+      "isTouchingWater": true,
+      "animations": [
+        "q.look('head_ai', 1, 1, 30, -30, 45, -45)",
+        "q.bedrock('threiscue', 'water_swim')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('threiscue', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "q.bedrock('threiscue', 'sleep')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      }
+    }
+  }
+}

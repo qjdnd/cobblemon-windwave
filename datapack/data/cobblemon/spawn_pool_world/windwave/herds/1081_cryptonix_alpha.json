@@ -1,0 +1,40 @@
+{
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "cryptonix-alpha-1",
+      "presets": [
+        "ancient_city"
+      ],
+      "type": "pokemon-herd",
+      "bucket": "boss",
+      "spawnablePositionType": "grounded",
+      "maxHerdSize": 4,
+      "levelRange": "45-100",
+      "weight": 25.0,
+      "condition": {
+        "canSeeSky": false
+      },
+      "herdablePokemon": [
+        {
+          "pokemon": "cryptonix held_item=cobblemon:ghost_gem alpha=true",
+          "weight": 30.0,
+          "levelRange": "1-100",
+          "maxTimes": 1,
+          "isLeader": true,
+          "isFollower": false
+        },
+        {
+          "pokemon": "onix",
+          "weight": 80.0,
+          "levelRange": "14-39",
+          "levelRangeOffset": "-3-3",
+          "maxTimes": 3,
+          "isLeader": false,
+          "isFollower": true
+        }
+      ]
+    }
+  ]
+}

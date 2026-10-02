@@ -1,0 +1,93 @@
+{
+  "portraitScale": 0.6,
+  "portraitTranslation": [
+    -0.46,
+    2.56,
+    0
+  ],
+  "profileScale": 0.26,
+  "profileTranslation": [
+    0,
+    1.1,
+    0
+  ],
+  "rootBone": "cryptonix",
+  "animations": {
+    "cry": "q.bedrock_stateful('cryptonix', 'cry')",
+    "recoil": "q.bedrock_stateful('cryptonix', 'recoil')",
+    "faint": "q.bedrock_primary('cryptonix', 'faint', q.curve('one'))",
+    "physical": "q.bedrock_primary('cryptonix', 'physical', q.curve('symmetrical'))",
+    "special": "q.bedrock_primary('cryptonix', 'special', q.curve('symmetrical'))",
+    "status": "q.bedrock_primary('cryptonix', 'status', q.curve('symmetrical'))",
+    "graveuprising": "q.bedrock_primary('cryptonix', 'graveuprising', q.curve('symmetrical'))"
+  },
+  "poses": {
+    "portrait": {
+      "poseTypes": [
+        "PORTRAIT",
+        "PROFILE"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.bedrock('cryptonix', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cryptonix', 'blink')"
+      ]
+    },
+    "battle-standing": {
+      "poseTypes": [
+        "STAND",
+        "FLOAT"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head', 0.6, 0.6, 25, -25, 30, -30)",
+        "q.bedrock('cryptonix', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cryptonix', 'blink')"
+      ]
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "FLOAT"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head', 0.6, 0.6, 25, -25, 30, -30)",
+        "q.bedrock('cryptonix', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cryptonix', 'blink')",
+        "q.bedrock_quirk('cryptonix', q.array('quirk_crosses', 'quirk_look', 'quirk_wail'), 15, 45, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "q.look('head', 0.6, 0.6, 25, -25, 30, -30)",
+        "q.bedrock('cryptonix', 'ground_walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cryptonix', 'blink')"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "animations": [
+        "q.bedrock('cryptonix', 'sleep')"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      }
+    }
+  }
+}
