@@ -129,6 +129,23 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬(꼴깍몬
 /pokespawn houndstone alpha=true
 ```
 
+## Cobblemon jar에 직접 넣은 버전 (팩 없이)
+
+리소스팩·데이터팩 대신, Cobblemon 1.8.1 jar 자체에 네 포켓몬을 넣은 버전도 만들 수 있습니다.
+Cobblemon이 자기 포켓몬을 넣는 방식 그대로입니다.
+
+- 모델·애니메이션·포저·리졸버·텍스처 → jar 안 `assets/cobblemon/...`
+- 종 파일(`data/cobblemon/species/generation3/gulpin.json` 등 4개)에 `implemented: true`, 크기, 히트박스를 직접 기록
+- 스폰·알파 무리 → jar 안 `data/cobblemon/spawn_pool_world/...`
+- 그 외 Cobblemon 원본 파일은 하나도 바뀌지 않음
+
+```
+python3 tools/patch_jar.py Cobblemon-fabric-1.8.1+1.21.1.jar     # -> ...-windwave.jar
+```
+
+사용법: `mods` 폴더의 원래 Cobblemon jar를 빼고 이 jar로 바꾸면 됩니다. 이때 리소스팩·데이터팩은 넣지 않아도 됩니다.
+멀티플레이라면 서버와 모든 플레이어가 같은 jar를 써야 합니다.
+
 ## Blockbench 모델링 파일 (.bbmodel)
 
 `bbmodel/` 폴더에 포켓몬마다 Blockbench 프로젝트 파일이 있습니다 (Blockbench 4.10 이상 / 5.x에서 열기).
