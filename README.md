@@ -1,7 +1,7 @@
 # cobblemon-windwave
 Cobblemon 1.8.1 Wind Wave Project
 
-Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가하는 리소스팩 + 데이터팩입니다.
+Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬(꼴깍몬·꿀꺽몬·망망이·묘두기)을 추가하는 리소스팩 + 데이터팩입니다.
 
 ![cover](previews/cover.png)
 
@@ -11,6 +11,8 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 |---|---|---|---|---|---|
 | #316 | 꼴깍몬 (Gulpin) | ✔ | ✔ 하늘색 몸 + 주황 깃털 | ✔ 붉게 빛나는 눈 | 암컷은 머리 깃털이 짧음 |
 | #317 | 꿀꺽몬 (Swalot) | ✔ | ✔ 파란 몸 + 주황 수염 | ✔ 붉게 빛나는 눈 | 암컷은 수염이 짧음 |
+| #971 | 망망이 (Greavard) | ✔ | ✔ 금색 털 | ✔ 앞머리 틈으로 붉은 눈 | 없음 |
+| #972 | 묘두기 (Houndstone) | ✔ | ✔ 황갈색 털 + 갈색 등 | ✔ 해골 코 위로 붉은 눈 | 없음 |
 
 - 이로치 색상은 공식 Pokémon HOME 3D 렌더의 색을 추출해서 적용했습니다.
 - 알파는 Cobblemon 1.8의 방식 그대로 `alpha_eyes` aspect + 발광(emissive) 눈 레이어를 쓰고,
@@ -19,8 +21,10 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 
 ![gulpin](previews/gulpin/variants.png)
 ![swalot](previews/swalot/variants.png)
+![greavard](previews/greavard/variants.png)
+![houndstone](previews/houndstone/variants.png)
 
-### 애니메이션
+### 꼴깍몬 · 꿀꺽몬 애니메이션
 
 공식 게임/애니메이션에서의 모습(슬라임처럼 통통 튀며 이동, 입술을 오므렸다가 크게 벌려 삼키기,
 하품을 배우는 꼴깍몬, 젤리처럼 출렁이는 꿀꺽몬 등)을 참고해서 만들었습니다.
@@ -45,17 +49,16 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 
 ### 스폰 (데이터팩)
 
-- `species_additions`로 두 포켓몬을 `implemented: true`로 켜고 크기/히트박스를 지정합니다.
+- `species_additions`로 네 포켓몬을 `implemented: true`로 켜고 크기/히트박스를 지정합니다.
 - 꼴깍몬: 늪/초원(흔함), 평원/사바나, 마을 주변, 도시(콘크리트 주변) — Lv. 8-28
 - 꿀꺽몬: 늪/사바나(드묾), 초원/평원(희귀), 도시 — Lv. 26-48
 - 무리: 꼴깍몬 무리(가끔 꿀꺽몬 동행)
 - 알파 무리(boss): 알파 꿀꺽몬이 꼴깍몬/꿀꺽몬을 이끄는 무리, 알파 꼴깍몬 무리
+- 망망이: 으스스한 숲·평원·초원, 마을 주변 — Lv. 10-29, 밤에 더 자주
+- 묘두기: 같은 곳에서 희귀 — Lv. 30-50, 밤에 더 자주
+- 알파 무리(boss): 알파 망망이 무리, 알파 묘두기가 망망이/묘두기를 이끄는 무리 (지닌 물건: 저주의부적)
 
-## 작업 중: 망망이 (Greavard, #971) — 팩에 아직 미포함
-
-`standalone/greavard/` 폴더에 리소스(assets)와 데이터(data) 파일이 따로 있고, `dist/` 팩 zip에는 아직 넣지 않았습니다.
-
-![greavard](previews/greavard/variants.png)
+## 망망이 (Greavard, #971)
 
 | 항목 | 내용 |
 |---|---|
@@ -63,8 +66,6 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 | 이로치 | 금색 털 (공식 HOME 렌더 색), 흰 털끝·뼈·불꽃은 그대로 |
 | 알파 | 평소엔 앞머리에 가려 안 보이는 눈이, 알파일 때만 앞머리 틈으로 붉게 빛남 |
 | 불꽃 | 4프레임 애니메이션 발광 텍스처(Cobblemon 애니메이션 레이어) + 흔들림 애니메이션 |
-
-애니메이션 (도감/SV 행동 참고):
 
 | 애니메이션 | 설명 |
 |---|---|
@@ -79,16 +80,39 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 | `recoil` / `faint` | 피격 / 납작 엎드리며 촛불이 꺼져감 |
 | quirk `wag`, `shake`, `sniff` | 꼬리 흔들기, 젖은 개처럼 털기, 땅 냄새 맡기 |
 
+## 묘두기 (Houndstone, #972)
+
+| 항목 | 내용 |
+|---|---|
+| 일반 | 흰 털 + 연보라 등과 목털, 해골 머리와 바위 같은 큰 아래턱, 머리 위 묘비(물결 무늬 새김), 뼈 다리·발톱, 뼈 꼬리 |
+| 이로치 | 황갈색 털 + 갈색 등 (공식 HOME 렌더 색), 뼈·묘비는 그대로 |
+| 알파 | 눈이 보이지 않는 해골 머리에서, 알파일 때만 코 위로 붉은 눈이 빛남 |
+
+| 애니메이션 | 설명 |
+|---|---|
+| `ground_idle` | 충직한 경비견처럼 차분히 숨쉬기, 턱·목털·꼬리 흔들림 |
+| `ground_walk` | 뼈 다리로 묵직하게 걷기, 묘비·목털이 흔들림 |
+| `battle_idle` | 머리를 낮추고 턱을 덜덜 떨며 으르렁 |
+| `sleep` | 무덤처럼 털 더미로 납작 엎드리고 묘비만 서 있음 ("묘지에서 잠을 잔다" 도감 설정) |
+| `cry` | 고개를 들고 턱을 크게 벌려 길게 울부짖기 |
+| `physical` | 라스트리스펙트처럼 달려들어 큰 턱으로 깨물기 |
+| `special` / `spray` | 앞발을 들고 일어섰다가 울부짖으며 내려찍기 |
+| `status` | 몸을 돌려 꼬리 흔들기 |
+| `recoil` / `faint` | 피격 / 털 더미로 주저앉고 묘비만 남음 |
+| quirk `wag`, `look`, `shake` | 꼬리 흔들기, 좌우 경계, 털 털기 |
+
 ## 설치
 
 `dist/` 폴더에 리소스팩과 데이터팩이 따로 있습니다.
 
 | 파일 | 넣는 곳 |
 |---|---|
-| `cobblemon-windwave-gulpin-swalot_resourcepack.zip` | `.minecraft/resourcepacks/` → 게임 설정에서 리소스팩 활성화 |
-| `cobblemon-windwave-gulpin-swalot_datapack.zip` | `saves/<월드>/datapacks/` → `/reload` 또는 월드 다시 열기 |
-| `cobblemon-windwave-gulpin-swalot.zip` | 리소스팩+데이터팩 합본 (두 곳에 같은 파일을 넣어도 됨) |
-| `cobblemon-windwave-models.zip` | 지금까지 만든 모든 포켓몬(꼴깍몬·꿀꺽몬·망망이)의 모델/애니메이션/포저/리졸버/텍스처(일반·이로치·알파) 파일 모음 (팩 아님) |
+| `cobblemon-windwave_resourcepack.zip` | `.minecraft/resourcepacks/` → 게임 설정에서 리소스팩 활성화 |
+| `cobblemon-windwave_datapack.zip` | `saves/<월드>/datapacks/` → `/reload` 또는 월드 다시 열기 |
+| `cobblemon-windwave.zip` | 리소스팩+데이터팩 합본 (두 곳에 같은 파일을 넣어도 됨) |
+| `cobblemon-windwave-models.zip` | 모든 포켓몬의 모델/애니메이션/포저/리졸버/텍스처(일반·이로치·알파) 파일 모음 (팩 아님) |
+
+네 포켓몬(꼴깍몬·꿀꺽몬·망망이·묘두기)이 모두 하나의 팩에 들어 있습니다. 예전 `cobblemon-windwave-gulpin-swalot*.zip`은 지우고 이걸로 바꾸면 됩니다.
 
 서버라면 데이터팩은 서버 월드의 `datapacks/` 폴더에, 리소스팩은 각 클라이언트에 넣습니다.
 두 팩 모두 있어야 합니다. 데이터팩만 있으면 모델 없이 스폰되고, 리소스팩만 있으면 스폰되지 않습니다.
@@ -101,6 +125,8 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 /pokespawn gulpin alpha=true
 /pokespawn swalot gender=female
 /pokespawn swalot shiny alpha=true
+/pokespawn greavard shiny
+/pokespawn houndstone alpha=true
 ```
 
 ## Blockbench 모델링 파일 (.bbmodel)
@@ -112,6 +138,7 @@ Cobblemon 1.8.1(Minecraft 1.21.1)에 아직 모델이 없는 포켓몬을 추가
 | `bbmodel/gulpin.bbmodel` | 모델(본·큐브·로케이터), 텍스처 3장(일반·이로치·알파), 애니메이션 14개 |
 | `bbmodel/swalot.bbmodel` | 모델, 텍스처 3장(일반·이로치·알파), 애니메이션 13개 |
 | `bbmodel/greavard.bbmodel` | 모델, 텍스처 7장(일반·이로치·알파·불꽃 4프레임), 애니메이션 14개 |
+| `bbmodel/houndstone.bbmodel` | 모델, 텍스처 3장(일반·이로치·알파), 애니메이션 14개 |
 
 - 텍스처는 프로젝트 안에 들어 있어서 따로 연결할 필요가 없습니다. 이로치/알파는 텍스처 목록에서 골라 적용해 보면 됩니다.
 - 수정 후 `File > Export > Export Bedrock Geometry` / `Animation > Export Animations`로 내보내면 Cobblemon에서 그대로 쓸 수 있습니다.
@@ -129,7 +156,6 @@ pack/                                   리소스팩 + 데이터팩 원본 (zip 
   assets/cobblemon/textures/pokemon/0316_gulpin/gulpin.png, gulpin_shiny.png, gulpin_alpha.png
   data/cobblemon/species_additions/, spawn_pool_world/
 tools/                                  모델/텍스처/애니메이션 생성 스크립트 (Python)
-standalone/greavard/                    망망이 (팩 미포함, assets/ + data/)
 bbmodel/                                Blockbench 프로젝트 파일 (.bbmodel)
 previews/                               미리보기 이미지와 애니메이션 GIF
 dist/                                   배포용 zip

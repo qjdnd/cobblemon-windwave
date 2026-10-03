@@ -3,7 +3,7 @@
 Produces four files:
   * ..._resourcepack.zip  (assets only, for .minecraft/resourcepacks/)
   * ..._datapack.zip      (data only, for saves/<world>/datapacks/)
-  * ...gulpin-swalot.zip  (combined, works in both places)
+  * cobblemon-windwave.zip (combined, works in both places)
   * cobblemon-windwave-models.zip (model assets of every Pokémon, incl. standalone ones)
 """
 import json
@@ -13,8 +13,8 @@ import zipfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PACK = os.path.join(ROOT, "pack")
 DIST = os.path.join(ROOT, "dist")
-BASE = "cobblemon-windwave-gulpin-swalot"
-DESC = "Cobblemon Wind Wave - Gulpin & Swalot (1.8.1)"
+BASE = "cobblemon-windwave"
+DESC = "Cobblemon Wind Wave - Gulpin, Swalot, Greavard, Houndstone (1.8.1)"
 
 # Minecraft 1.21.1: resource pack format 34, data pack format 48
 RESOURCE_META = {"pack": {"pack_format": 34, "description": DESC + " [Resource Pack]"}}
@@ -63,7 +63,8 @@ def main():
 def models_zip():
     """All model assets (geo, animations, posers, resolvers, normal/shiny/alpha textures)
     for every Pokémon, including standalone ones that are not in the pack yet."""
-    roots = [PACK] + sorted(os.path.join(ROOT, "standalone", d) for d in os.listdir(os.path.join(ROOT, "standalone")))
+    sdir = os.path.join(ROOT, "standalone")
+    roots = [PACK] + (sorted(os.path.join(sdir, d) for d in os.listdir(sdir)) if os.path.isdir(sdir) else [])
     entries = []
     for r in roots:
         base = os.path.join(r, "assets")

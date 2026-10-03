@@ -1,0 +1,62 @@
+{
+  "enabled": true,
+  "neededInstalledMods": [],
+  "neededUninstalledMods": [],
+  "spawns": [
+    {
+      "id": "houndstone-1",
+      "pokemon": "houndstone",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "30-50",
+      "weight": 3.0,
+      "weightMultipliers": [
+        {
+          "multiplier": 3.0,
+          "condition": {
+            "timeRange": "night"
+          }
+        }
+      ],
+      "condition": {
+        "biomes": [
+          "#cobblemon:is_spooky",
+          "#cobblemon:is_plains",
+          "#cobblemon:is_grassland"
+        ]
+      }
+    },
+    {
+      "id": "houndstone-2",
+      "pokemon": "houndstone",
+      "presets": [
+        "natural"
+      ],
+      "type": "pokemon",
+      "spawnablePositionType": "grounded",
+      "bucket": "rare",
+      "level": "30-50",
+      "weight": 2.0,
+      "weightMultipliers": [
+        {
+          "multiplier": 3.0,
+          "condition": {
+            "timeRange": "night"
+          }
+        }
+      ],
+      "condition": {
+        "biomes": [
+          "#cobblemon:is_overworld"
+        ],
+        "structures": [
+          "#minecraft:village"
+        ]
+      }
+    }
+  ]
+}

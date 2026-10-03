@@ -24,9 +24,9 @@ PACK = os.path.join(ROOT, "pack")
 ASSETS = os.path.join(PACK, "assets", "cobblemon")
 PREVIEWS = os.path.join(ROOT, "previews")
 
-SPECIES = ["gulpin", "swalot", "greavard"]
+SPECIES = ["gulpin", "swalot", "greavard", "houndstone"]
 # Species whose files go to a standalone folder instead of pack/ (not bundled into a pack yet).
-STANDALONE = {"greavard": os.path.join(ROOT, "standalone", "greavard")}
+STANDALONE = {}
 
 
 def _write_json(path, data):
