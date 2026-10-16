@@ -1,0 +1,110 @@
+{
+  "portraitScale": 1.0,
+  "portraitTranslation": [
+    0,
+    0.41,
+    0
+  ],
+  "profileScale": 1.0,
+  "profileTranslation": [
+    0,
+    0.25,
+    0
+  ],
+  "rootBone": "cramorant_baby",
+  "animations": {
+    "cry": "q.bedrock_stateful('cramorant_baby', 'cry')",
+    "faint": "q.bedrock_primary('cramorant_baby', 'faint')",
+    "recoil": "q.bedrock_stateful('cramorant_baby', 'recoil')",
+    "physical": "q.bedrock_primary('cramorant_baby', 'physical', q.curve('symmetrical_wide'))",
+    "special": "q.bedrock_primary('cramorant_baby', 'special', q.curve('symmetrical_wide'))",
+    "status": "q.bedrock_primary('cramorant_baby', 'status', q.curve('symmetrical_wide'))"
+  },
+  "poses": {
+    "battle-standing": {
+      "poseTypes": [
+        "STAND"
+      ],
+      "isBattle": true,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('cramorant_baby', 'battle_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cramorant_baby', 'blink', 3, 12, 1)",
+        "q.bedrock_quirk('cramorant_baby', 'nom', 6, 20, 1)"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_primary('cramorant_baby', 'battle_cry', q.curve('symmetrical_wide'))"
+      }
+    },
+    "standing": {
+      "poseTypes": [
+        "STAND",
+        "NONE",
+        "PORTRAIT",
+        "PROFILE",
+        "FLOAT"
+      ],
+      "isBattle": false,
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('cramorant_baby', 'ground_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cramorant_baby', 'blink', 3, 12, 1)",
+        "q.bedrock_quirk('cramorant_baby', 'nom', 6, 20, 1)"
+      ]
+    },
+    "walking": {
+      "poseTypes": [
+        "WALK",
+        "SWIM"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('cramorant_baby', 'walk')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cramorant_baby', 'blink', 3, 12, 1)",
+        "q.bedrock_quirk('cramorant_baby', 'nom', 6, 20, 1)"
+      ]
+    },
+    "hover": {
+      "poseTypes": [
+        "HOVER"
+      ],
+      "animations": [
+        "q.look('head')",
+        "q.bedrock('cramorant_baby', 'air_idle')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cramorant_baby', 'blink', 3, 12, 1)",
+        "q.bedrock_quirk('cramorant_baby', 'nom', 6, 20, 1)"
+      ]
+    },
+    "flying": {
+      "poseTypes": [
+        "FLY"
+      ],
+      "animations": [
+        "q.bedrock('cramorant_baby', 'air_fly')"
+      ],
+      "quirks": [
+        "q.bedrock_quirk('cramorant_baby', 'blink', 3, 12, 1)",
+        "q.bedrock_quirk('cramorant_baby', 'nom', 6, 20, 1)"
+      ]
+    },
+    "sleep": {
+      "poseTypes": [
+        "SLEEP"
+      ],
+      "namedAnimations": {
+        "cry": "q.bedrock_stateful('dummy', 'cry')"
+      },
+      "animations": [
+        "q.bedrock('cramorant_baby', 'sleep')"
+      ]
+    }
+  }
+}
